@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %} 
+
+{% block title %}
+    School Planner
+{% endblock %}
+
+{% block body %}  
+    {% for class in classes %}
+      <li>{{class}}</li>
+    
+    {% endfor %}  
+  <p>This information is found at  {{ _self }} </p>
+
+  <p>The charset being used is {{ _charset }} </p>
+
+  <p>This page was created by {{ author }}</p> 
+
+  <p>'Author' is a global variable set in the twig.yaml file
+
+{% endblock %}   
