@@ -45,10 +45,11 @@
                 {# <p class="text-base text-gray-700 pt-4 pb-10 leading-8 font-light">
                     {{ class.description }}
                 </p> #}
-
-                <a href="/teachers/{{ teacher.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded transition transition-all hover:bg-gray-800 hover:text-white">
-                    Keep Reading
-                </a>
+                <div class="mt-8">
+                    <a href="/teachers/{{ teacher.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded transition transition-all hover:bg-gray-800 hover:text-white">
+                        Keep Reading
+                    </a>
+                </div>
             </div>
         {% endfor %}
     </div>
