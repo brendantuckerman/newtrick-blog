@@ -12,6 +12,19 @@ To start
 
 `docker compose exec php composer create-project symfony/skeleton .`
 
+(if it has, you'll need to composer files):
+
+`docker compose exec php symfony composer install`
+
+Then you'll need to ensure you have the  required npm packages used to compile assets. From /symfony run `npm i` and then `npm run watch`.
+
+## Tailwind ##
+
+See this for setup:
+
+https://www.youtube.com/watch?v=qW8v75vMgfk&list=PLFHz2csJcgk-t8ErN1BHUUxTNj45dkSqS&index=16
+
+
 To stop: 
 
 `docker compose down`

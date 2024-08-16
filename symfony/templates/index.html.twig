@@ -5,16 +5,21 @@
 {% endblock %}
 
 {% block body %}  
+  <h1 class="underline"> Another H1 </h1>
     {% for class in classes %}
       <li>{{class}}</li>
     
     {% endfor %}  
-  <p>This information is found at  {{ _self }} </p>
+  <p>This information is found at self: {{ _self }} </p>
 
   <p>The charset being used is {{ _charset }} </p>
 
   <p>This page was created by {{ author }}</p> 
 
   <p>'Author' is a global variable set in the twig.yaml file</p>
+
+  <img src="{{ asset('build/images/image.3119a9d5.jpg') }}" alt="A placeholder image">
+
+  
 
 {% endblock %}   
