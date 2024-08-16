@@ -1,4 +1,13 @@
-#### Welcome to symfony intro ####
+#### Welcome to symfony template ####
+
+A Docker based Symfony skeleton with some basic set up items:
+
+- Tailwindcss
+- Webpack for symfony
+- Encore
+- Doctrine
+
+Should be enough to clone and get started. 
 
 To start from scratch:
 
@@ -47,7 +56,7 @@ And the maker bundle:
 
 `docker compose exec php symfony composer require --dev symfony/maker-bundle`
 
-## Creeating Entities (i.e tables) ##
+## Creating Entities (i.e tables) ##
 
 Create with 
 
