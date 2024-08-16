@@ -1,0 +1,46 @@
+{# Single #}
+{% extends "./base.html.twig" %}
+
+{% block body %}
+    <div class="sm:w-3/5 w-4/5 mx-auto">
+        <h1 class="pt-20 sm:text-5xl md:text-7xl text-4xl font-bold text-center">
+            {{ class.title }}
+        </h1>
+
+        <div class="py-10 text-center">
+            <div class="inline-block sm:pt-1">
+                <h2 class="font-bold">
+                    Created by: NewTrick
+                </h2>
+
+                <p class="text-sm text-gray-600">
+                    {{ 'now' | date('Y') }} 
+                </p>
+            </div>
+        </div>
+
+        <img
+            src="{{ class.imagePath }}"
+            class="rounded-xl w-full shadow-xl"
+            alt="Icon of Code With Dary"
+        />
+
+        <p class="text-xl py-6">
+            {{ class.description }}
+        </p>
+
+        {% if app.user and class.userId == app.user.id %}
+            <a 
+                href="/classes/edit/{{ class.id }}"
+                class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
+                Edit class
+            </a>
+
+            <a 
+                href="/classes/delete/{{ class.id }}"
+                class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
+                Delete Class
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}

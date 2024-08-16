@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ClassesController extends AbstractController
 {
-    #[Route('/classes', name: 'app_classes')]
+    #[Route('/', name: 'home')]
     public function index(): Response
     {
         $classes = ['Year 10 Maths Core',
