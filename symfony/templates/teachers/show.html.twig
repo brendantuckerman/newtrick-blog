@@ -4,7 +4,7 @@
 {% block body %}
     <div class="sm:w-3/5 w-4/5 mx-auto">
         <h1 class="pt-20 sm:text-5xl md:text-7xl text-4xl font-bold text-center">
-            {{ class.title }}
+            {{ teacher.firstName }} {{ teacher.lastName }}
         </h1>
 
         <div class="py-10 text-center">
@@ -20,26 +20,26 @@
         </div>
 
         <img
-            src="{{ class.imagePath }}"
+            src="{{ teacher.imagePath }}"
             class="rounded-xl w-full shadow-xl"
             alt="Icon of Code With Dary"
         />
 
         <p class="text-xl py-6">
-            {{ class.description }}
+            {{ teacher.description }}
         </p>
 
-        {% if app.user and class.userId == app.user.id %}
+        {% if app.user and teacher.userId == app.user.id %}
             <a 
-                href="/classes/edit/{{ class.id }}"
+                href="/teachers/edit/{{ teacher.id }}"
                 class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
-                Edit class
+                Edit teacher
             </a>
 
             <a 
-                href="/classes/delete/{{ class.id }}"
+                href="/teachers/delete/{{ teacher.id }}"
                 class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
-                Delete Class
+                Delete Teacher
             </a>
         {% endif %}
     </div>

@@ -7,21 +7,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Repository\TeacherRepository;
 
 
-class ClassesController extends AbstractController
+class TeachersController extends AbstractController
 {
-    #[Route('/classes', name: 'classes')]
+
+    //Connect to the entries for teachers in the DB
+    private $teacherRepository;
+    public function __construct(TeacherRepository $teacherRepository)
+    {
+        $this->teacherRepository = $teacherRepository;
+
+    }
+
+
+    #[Route('/teachers', name: 'teachers')]
     public function index(): Response
     {
-        $classes = ['Year 10 Maths Core',
-          'Year 12 English', 
-          'Year 7 Japanese'
-        ];
+        $teachers =  $this->teacherRepository->findAll();
 
-        return $this->render('classes/index.html.twig', array(
-          'classes'  => $classes
-        ));
+        return $this->render('teachers/index.html.twig', [
+            'teachers' => $teachers
+        ]);
 
     }
 

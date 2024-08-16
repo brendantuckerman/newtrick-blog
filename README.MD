@@ -74,3 +74,8 @@ to write to the DB
 
 ## Fixtures (Dummy Data) ##
 
+Ensure that there are fixture files in the DataFixtures folder (MODEL.php)
+
+Ru the following to load the fixture data
+
+`docker compose exec php symfony console doctrine:fixtures:load`
