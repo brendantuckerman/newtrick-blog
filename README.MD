@@ -7,6 +7,8 @@ A Docker based Symfony project utilising:
 - Encore
 - Doctrine
 
+See composer.json for composer packages and package.json for npm packages.
+
 Should be enough to clone and get started. 
 
 To start from scratch:
@@ -84,6 +86,12 @@ Ensure that there are fixture files in the DataFixtures folder (MODEL.php)
 Ru the following to load the fixture data
 
 `docker compose exec php symfony console doctrine:fixtures:load`
+
+## Creating forms with symfony/forms ##
+
+You can use this module to create forms using 'make:from MODELFormType MODEL'. e.g:
+
+`docker compose exec php symfony console make:form TeacherFormType Teacher`
 
 
 ## Start up for existing (cloned) project ##
