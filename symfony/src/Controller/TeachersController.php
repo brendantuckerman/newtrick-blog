@@ -21,8 +21,8 @@ class TeachersController extends AbstractController
 
     }
 
-
-    #[Route('/teachers', name: 'teachers')]
+    // Show all
+    #[Route('/teachers', methods:['GET'], name: 'teachers')]
     public function index(): Response
     {
         $teachers =  $this->teacherRepository->findAll();
@@ -32,6 +32,20 @@ class TeachersController extends AbstractController
         ]);
 
     }
+
+    // Show one
+    #[Route('/teachers/{id}', methods:['GET'], name: 'teacher')]
+    public function show($id): Response
+    {
+        $teacher =  $this->teacherRepository->find($id);
+
+        return $this->render('teachers/show.html.twig', [
+            'teacher' => $teacher
+        ]);
+
+    }
+
+   
 
      
        
