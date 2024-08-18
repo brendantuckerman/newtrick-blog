@@ -31,6 +31,8 @@ class TeacherFormType extends AbstractType
               ]
             )
             ->add('imagePath', FileType::class,  [
+              'required' => false,
+              'mapped' => false,
               'attr' => array(
                 'class' => 'py-10 block'
                 )

@@ -73,6 +73,20 @@ class TeachersController extends AbstractController
 
     }
 
+    //UPDATE (edit)
+    #[Route('teachers/edit/{id}', name: 'edit_teachers')]
+    public function edit($id): Response
+    {
+      $teacher = $this->teacherRepository->find($id);
+
+      $form = $this->createForm(TeacherFormType::class, $teacher);
+
+      return $this->render('teachers/edit.html.twig', [
+        'teacher' => $teacher,
+        'form' => $form->createView()
+      ]);
+    }
+
     // READ all
     #[Route('/teachers', methods:['GET'], name: 'teachers')]
     public function index(): Response
