@@ -85,15 +85,30 @@
                                         Contact
                                     </a>
                                 </li>
+                             {% if app.user %}
 
+                              <li class="mr-3">
+                                    <a
+                                        class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                                        href={{ app.user  ? '/logout' : '/login' }}
+                                        @click="isOpen = false">
+                                        {{ app.user  ? 'Logout' : 'Login' }}
+                                    </a>
+                                </li>  
+
+
+
+                             {% else %}
                                 <li class="mr-3">
                                     <a
                                         class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                                        href="/"
+                                        href="/login"
                                         @click="isOpen = false">
                                         Login
                                     </a>
-                                </li>                                
+                                </li>   
+
+                            {%  endif %}                             
                             </ul>
                         </div>
                     </nav>
