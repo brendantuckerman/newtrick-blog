@@ -161,6 +161,18 @@ class TeachersController extends AbstractController
     }
 
 
+    //Delete
+    #[Route('/teachers/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete_teacher')]
+    public function delete($id): Response
+    {
+      $teacher = $this->teacherRepository->find($id);
+      $this->em->remove($teacher);
+      $this->em->flush();
+      return $this->redirectToRoute('teachers');
+
+    }
+
+
     /**
      * index
      *
