@@ -96,7 +96,7 @@ You can use this module to create forms using 'make:from MODELFormType MODEL'. e
 
 ## Start up for existing (cloned) project ##
 
-If you are not re-creating this project from the gorund up, here are the more simple steps needed to get going for development:
+If you are not re-creating this project from the gorund up, here are the more simple steps needed to get going for development. Make sure Docker is running.
 
 TODO: Put these in a startup script
 && add in composer update

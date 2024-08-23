@@ -64,7 +64,6 @@ class TeachersController extends AbstractController
 
           return $this->redirect('/teachers');
 
-
         }
 
         return $this->render('teachers/create.html.twig', [
@@ -75,19 +74,69 @@ class TeachersController extends AbstractController
 
     //UPDATE (edit)
     #[Route('teachers/edit/{id}', name: 'edit_teachers')]
-    public function edit($id): Response
+    public function edit($id, Request $request): Response
     {
       $teacher = $this->teacherRepository->find($id);
 
       $form = $this->createForm(TeacherFormType::class, $teacher);
 
-      return $this->render('teachers/edit.html.twig', [
-        'teacher' => $teacher,
-        'form' => $form->createView()
-      ]);
-    }
+      $form->handleRequest($request);
+      $imagePath = $form->get('imagePath')->getData();
 
-    // READ all
+      //Handle when a new image is uploaded (or not)
+
+      //Check whether form has been submitted
+      if ($form->isSubmitted() && $form->isValid()) {
+        if ($imagePath) {
+          if ($teacher->getImagePath() !== null) {
+            if (file_exists(
+                  $this->getParameter('kernel.project_dir') . '/public/' . $teacher->getImagePath()
+                )) {
+             
+              
+                $this->getParameter('kernel.project_dir') . '/public/' .  $teacher->getImagePath();
+
+                //Give image a unique id
+                $newFileName = uniqid() . "." .$imagePath->guessExtension();
+
+                //Upload the image
+                try {
+                  $imagePath->move(
+                    //Accepts 2 params:
+                    // Where to look
+                    $this->getParameter('kernel.project_dir') . '/public/uploads',
+                    //New file name
+                    $newFileName
+                  );
+                } catch  (FileException $e){
+                  return new Response($e->getMessage());
+                }
+    
+                $teacher->setImagePath('/uploads/' . $newFileName);
+
+                $this->em->flush();
+
+                return $this->redirectToRoute('teachers');
+              } 
+            }
+        } else {
+          //Persist the title etc as image is unchanged
+          $teacher->setFirstName($form->get('firstName')->getData());
+          $teacher->setLastName($form->get('lastName')->getData());
+
+          $this->em->flush();
+
+          return $this->redirectToRoute('teachers');
+        }
+      }
+
+        return $this->render('teachers/edit.html.twig', [
+          'teacher' => $teacher,
+          'form' => $form->createView()
+        ]);
+    }
+    
+      // READ all
     #[Route('/teachers', methods:['GET'], name: 'teachers')]
     public function index(): Response
     {
@@ -111,10 +160,7 @@ class TeachersController extends AbstractController
 
     }
 
-   
 
-     
-       
     /**
      * index
      *
