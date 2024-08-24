@@ -1,0 +1,43 @@
+{# Essentially  show (user/{id}) #}
+{# Single #}
+{% extends "./base.html.twig" %}
+
+{% block body %}
+    <div class="sm:w-3/5 w-4/5 mx-auto">
+        <h1 class="pt-20 sm:text-5xl md:text-7xl text-4xl font-bold text-center">
+         {% if user %}
+            {{ user.email }} 
+          {% else %}
+           User
+          {% endif %}
+        </h1>
+
+        <div class="py-10 text-center">
+            <div class="inline-block sm:pt-1">
+                <h2 class="font-bold">
+                    User since:
+                </h2>
+
+                <p class="text-sm text-gray-600">
+                    {{ user.CreatedAtValue|date('Y-m-d H:i:s') }} 
+                </p>
+            </div>
+        </div>
+        
+
+        {% if (app.user and user.id == app.user.id) or is_granted('ROLE_ADMIN') %}
+         
+            <a 
+                href="/users/edit/{{ user.id }}"
+                class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
+                Edit my details
+            </a>
+
+            <a 
+                href="/user/delete/{{ user.id }}"
+                class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
+                Delete my account
+            </a>
+        {% endif %} 
+    </div>
+{% endblock %}
