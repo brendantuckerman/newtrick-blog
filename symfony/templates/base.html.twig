@@ -11,17 +11,17 @@
             {% block header %}
                 <header>
                     <nav
-                            class="flex items-center justify-between flex-wrap p-6 fixed w-full z-10 top-0"
+                            class="text-black flex items-center justify-between flex-wrap p-6 fixed w-full z-10 top-0"
                             x-data="{ isOpen: false }"
                             @keydown.escape="isOpen = false"
-                            :class="{ 'shadow-lg bg-gray-600' : isOpen , 'bg-gray-600' : !isOpen}">
+                          > 
 
-                        <div class="flex items-center flex-shrink-0 text-white mr-6">
+                        <div class="flex items-center flex-shrink-0 text-black mr-6">
                             <a
-                                    class="text-white no-underline hover:text-white hover:no-underline"
+                                    class="text-black no-underline hover:text-white hover:no-underline"
                                     href="/">
             <span class="text-2xl pl-2 font-extrabold">
-                Orchestra School Planner
+                Orchestra School Manager
             </span>
                             </a>
                         </div>
@@ -29,7 +29,7 @@
                         <button
                                 @click="isOpen = !isOpen"
                                 type="button"
-                                class="block lg:hidden px-2 text-gray-500 hover:text-white focus:outline-none focus:text-white"
+                                class="block lg:hidden px-2 text-black hover:text-white focus:outline-none focus:text-white"
                                 :class="{ 'transition transform-180': isOpen }">
 
                             <svg
@@ -61,7 +61,7 @@
                             <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
                                 <li class="mr-3">
                                     <a
-                                            class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                                            class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                             href="/"
                                             @click="isOpen = false">
                                         Home
@@ -70,16 +70,16 @@
 
                                 <li class="mr-3">
                                     <a
-                                            class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                                            href="/movies"
+                                            class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
+                                            href="/teachers"
                                             @click="isOpen = false"
-                                    >My Classes
+                                    >All teachers
                                     </a>
                                 </li>
 
                                 <li class="mr-3">
                                     <a
-                                            class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                                            class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                             href="/contact"
                                             @click="isOpen = false">
                                         Contact
@@ -89,7 +89,7 @@
 
                               <li class="mr-3">
                                     <a
-                                        class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                                        class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                         href={{ app.user  ? '/logout' : '/login' }}
                                         @click="isOpen = false">
                                         {{ app.user  ? 'Logout' : 'Login' }}
@@ -101,7 +101,7 @@
                              {% else %}
                                 <li class="mr-3">
                                     <a
-                                        class="inline-block text-gray-300 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                                        class="inline-block text-gray-700 no-underline hover:text-blue-500 hover:text-underline py-2 px-4"
                                         href="/login"
                                         @click="isOpen = false">
                                         Login
@@ -118,7 +118,7 @@
             {% block body %}{% endblock %}
 
             {% block footer %}
-                <footer class="bg-gray-600 py-6 mt-20">
+                <footer class="bg-blue-700 py-6 mt-40 absolute bottom-0 w-full h-20">
                     <p class="w-25 w-4/5 text-center pb-3 m-auto text-base text-gray-100 pt-6">
                         Copyright {{ 'now' | date('Y') }} NewTrick. All Rights Reserved
                     </p>

@@ -20,7 +20,7 @@ security:
                 login_path: app_login
                 check_path: app_login
                 enable_csrf: true
-                default_target_path: teachers
+                default_target_path: index
             logout:
                 path: app_logout
                 # where to redirect after logout
@@ -36,8 +36,15 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/teachers/create, roles: ROLE_USER }
         - { path: ^/profile, roles: ROLE_USER }
+
+      # Allow access to index, login, and register routes for everyone
+        - { path: ^/$, roles: PUBLIC_ACCESS }
+        - { path: ^/login$, roles: PUBLIC_ACCESS }
+        - { path: ^/register$, roles: PUBLIC_ACCESS }
+        
+        # Restrict all other routes to roles higher than ROLE_USER
+        - { path: ^/, roles: [ROLE_USER, ROLE_ADMIN] }
 
 when@test:
     security:
