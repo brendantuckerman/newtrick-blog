@@ -1,11 +1,53 @@
-#### Welcome to Orchestra School Planner ####
+#### Welcome to NewTrick Blogger ####
 
-A Docker based Symfony project utilising:
+A Symfony blog site project utilising:
 
 - Tailwindcss
 - Webpack for symfony
 - Encore
 - Doctrine
+
+
+### MVP ###
+
+- Front page with a brief intro and a list of blogs as card with tags
+    - Admin has a + create new blog post link
+- login
+- Login leads to front if ROLE_USER, to Admin dashboard if ROLE_ADMIN
+- ROLE_USER can leave comments
+- Admin dashoard:
+    - User management CRUD
+    - Blog post management CRUD
+        - Create blog post includes CKEDITOR5
+
+
+### Entities ###
+
+- User (* = required)
+    - Roles: ADMIN, USER * 
+    - email *
+    - pw *
+    - created at *
+    - modified at *
+    - Username *
+    - Image path (string)
+
+- Posts (* = required)
+    - Title * string
+    - Image path string
+    - Text (whatever CKEDITOR needs)
+    - Tags array
+    - Related articles (Array of paths? Or can this be handled by the tags?)
+
+- Comments
+    - Text
+    - created at
+
+### Relationships ###
+
+USERS have many posts (locked to admin)
+USERS have many comments
+POSTS have many comments
 
 See composer.json for composer packages and package.json for npm packages.
 
