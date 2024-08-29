@@ -3,10 +3,9 @@
 A Symfony blog site project utilising:
 
 - Tailwindcss
-- Webpack for symfony
-- Encore
+- Encore Webpack
 - Doctrine
-
+- Ckeditor 5
 
 ### MVP ###
 
@@ -32,10 +31,12 @@ A Symfony blog site project utilising:
     - Username *
     - Image path (string)
 
+NB: The FOSC Bundle will need to be installed before creating the Posts entity to allow for the textfield utilising CKEDITOR :check:
+
 - Posts (* = required)
     - Title * string
     - Image path string
-    - Text (whatever CKEDITOR needs)
+    - Text (whatever CKEDITOR needs) https://symfony.com/bundles/FOSCKEditorBundle/current/installation.html
     - Tags array
     - Related articles (Array of paths? Or can this be handled by the tags?)
 
@@ -148,8 +149,9 @@ TODO: Put these in a startup script
 3. docker compose up
 4. docker compose exec php symfony composer install
 5. cd symfony/
-6. docker compose exec php symfony console doctrine:migrations:migrate
-7. docker compose exec php symfony console doctrine:fixtures:load
-8. npm i
-9. npm run watch
-10. Project should be running at localhost:8080
+6. docker compose exec php symfony console make:migration  (?)
+7. docker compose exec php symfony console doctrine:migrations:migrate
+8. docker compose exec php symfony console doctrine:fixtures:load
+9. npm i
+10. npm run watch
+11. Project should be running at localhost:8080

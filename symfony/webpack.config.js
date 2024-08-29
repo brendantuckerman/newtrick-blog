@@ -86,6 +86,13 @@ Encore
         to: 'images/[path][name].[hash:8].[ext]',
         pattern: /\.(png|jpg|jpeg|avif|webp)$/
     })
+
+    //Ckeditory
+    .copyFiles({
+        from: './node_modules/@ckeditor/ckeditor5-build-classic/build',
+        to: 'ckeditor/[path][name].[ext]',
+        pattern: /ckeditor\.js$/
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();

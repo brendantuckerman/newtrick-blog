@@ -18,13 +18,8 @@ class UserFormType extends AbstractType
         ->add('email', EmailType::class)
         ->add('roles', ChoiceType::class, [
             'choices' => [
-                // 'User' => 'ROLE_USER', (Default)
-                'Staff' => 'ROLE_STAFF',
-                'Student' => 'ROLE_STUDENT',
-                'Content Editor' => 'ROLE_CONTENT_EDITOR',
-                'Admin' => 'ROLE_ADMIN',
-                'Super Admin' => 'ROLE_SUPER_ADMIN',
 
+                'Admin' => 'ROLE_ADMIN'
             ],
             'multiple' => true,
             'expanded' => true, // use checkboxes
