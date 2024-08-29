@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Student;
 use App\Entity\Teacher;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -16,13 +17,13 @@ class TeacherFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('firstName', TextType::class, [
-              'attr' => array(
-                'class' => 'bg-transparent p-8 m8 block border-b-2 w-full h-20 text-6xl outline-none',
-                'placeholder' => 'Enter  first name...'
-                )
-              ]
-            )
+            // ->add('firstName', TextType::class,  [
+            //   'attr' => array(
+            //     'class' => 'bg-transparent p-8 m8 block border-b-2 w-full h-20 text-6xl outline-none',
+            //     'placeholder' => 'Enter  first name...'
+            //     )
+            //   ]
+            // )
             ->add('lastName', TextType::class,  [
               'attr' => array(
                 'class' => 'bg-transparent p-8 m8 block border-b-2 w-full h-20 text-6xl outline-none',
@@ -38,6 +39,10 @@ class TeacherFormType extends AbstractType
                 )
               ]
             )
+            ->add('firstName', CKEditorType::class, [
+              'config_name' => 'my_config',
+              'attr' => ['class' => 'ckeditor']
+            ])
             /*->add('students', EntityType::class, [
                 'class' => Student::class,
                 'choice_label' => 'id',

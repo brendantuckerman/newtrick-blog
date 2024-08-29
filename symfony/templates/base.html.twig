@@ -6,6 +6,8 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_script_tags('app') }}
     </head>
     <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
             {% block header %}
@@ -124,7 +126,9 @@
                 </header>
             {% endblock %}
 
-            {% block body %}{% endblock %}
+            {% block body %}
+            
+            {% endblock %}
 
             {% block footer %}
                 <footer class="bg-blue-700 py-6 mt-40 absolute bottom-0 w-full h-20">

@@ -9,5 +9,8 @@ import './bootstrap.js';
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
-//Import new JS files
-import './js/method1.js'; //Added directly.
+//Import CKEDITOR 5
+import './js/ckeditor.js'; //Added directly.
+
+
+

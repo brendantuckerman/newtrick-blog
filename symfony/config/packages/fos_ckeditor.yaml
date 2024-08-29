@@ -3,12 +3,13 @@
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+
 fos_ck_editor:
     base_path: "build/ckeditor"
-    js_path:   "build/ckeditor/ckeditor.js"
+    js_path: "build/ckeditor/ckeditor.js"
+    input_sync: true
+    default_config: my_config
     configs:
         my_config:
-            toolbar: [ ["bold", "italic"], ["link", "unlink"], ["numberedList", "bulletedList"], ["blockQuote"] ]
-    toolbars:
-        configs:
-            my_toolbar: [ ["bold", "italic"], ["link", "unlink"], ["numberedList", "bulletedList"], ["blockQuote"] ]
+            toolbar:
+                - { name: 'styles', items: ['Bold', 'Italic', 'Link', 'Unlink', 'NumberedList', 'BulletedList', 'BlockQuote'] }

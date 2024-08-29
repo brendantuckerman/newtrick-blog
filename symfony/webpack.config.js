@@ -21,7 +21,9 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('method2', './assets/js/method2.js')
+
+    // Alternate method of adding assets:
+    // .addEntry('method2', './assets/js/method2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -91,7 +93,7 @@ Encore
     .copyFiles({
         from: './node_modules/@ckeditor/ckeditor5-build-classic/build',
         to: 'ckeditor/[path][name].[ext]',
-        pattern: /ckeditor\.js$/
+        pattern: /\.(js|css|map)$/
     })
 ;
 
