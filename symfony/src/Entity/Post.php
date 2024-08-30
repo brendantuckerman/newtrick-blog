@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\PostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
+#[HasLifecycleCallbacks]
 class Post
 {
     #[ORM\Id]
@@ -36,6 +38,9 @@ class Post
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\Column(type: "boolean", options: ["default" => false])]
+    private ?bool $Published = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -58,10 +63,10 @@ class Post
         return $this->createdAt;
     }
 
+  
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
-
         return $this;
     }
 
@@ -70,11 +75,26 @@ class Post
         return $this->updatedAt;
     }
 
+
     public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function setUpdatedAtValue(): void
+    {
+        $this->updatedAt = new \DateTimeImmutable();
     }
 
     public function getContent(): ?string
@@ -113,6 +133,24 @@ class Post
         return $this;
     }
 
+    public function addTag(string $tag): self
+    {
+        if (!in_array($tag, $this->tags, true)) {
+            $this->tags[] = $tag;
+        }
+
+        return $this;
+    }
+
+    public function removeTag(string $tag): self
+    {
+        $this->tags = array_filter($this->tags, function ($item) use ($tag) {
+            return $item !== $tag;
+        });
+
+        return $this;
+    }
+
     public function getUser(): ?User
     {
         return $this->user;
@@ -121,6 +159,18 @@ class Post
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function isPublished(): ?bool
+    {
+        return $this->Published;
+    }
+
+    public function setPublished(bool $Published): static
+    {
+        $this->Published = $Published;
 
         return $this;
     }

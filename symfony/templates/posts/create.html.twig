@@ -1,0 +1,83 @@
+{% extends "./base.html.twig" %}
+{% block body %}
+<div class="w-4/5 m-auto pt-40">
+    <h1 class="text-6xl text-center pb-12">
+        Create a new post
+    </h1>
+
+    {{ form_start(form) }}
+
+         {{ form_row(form.title) }}
+        {# Custom rendering for tags #}
+        <div class="form-group">
+            {{ form_label(form.tags) }}
+            <div id="tags-container">
+                <input type="text" id="tag-input" placeholder="Enter a tag">
+                <button type="button" id="add-tag">Add Tag</button>
+            </div>
+            <div id="tags-list">
+                {% for tag in form.tags.vars.value %}
+                    <span class="tag">
+                        {{ tag }}
+                        <button type="button" class="remove-tag">&times;</button>
+                        <input type="hidden" name="{{ form.tags.vars.full_name }}[]" value="{{ tag }}">
+                    </span>
+                {% endfor %}
+            </div>
+            {{ form_errors(form.tags) }}
+        </div>
+    <button type="button" class="add-another-tag">Add a tag</button>
+   
+
+        <button    
+                type="submit"
+                class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+                Submit Post
+            </button>
+    {{ form_end(form) }}
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var tagInput = document.getElementById('tag-input');
+            var addTagButton = document.getElementById('add-tag');
+            var tagsList = document.getElementById('tags-list');
+
+            function addTag(tagValue) {
+                var tagSpan = document.createElement('span');
+                tagSpan.className = 'tag';
+                tagSpan.innerHTML = tagValue + 
+                    '<button type="button" class="remove-tag">&times;</button>' +
+                    '<input type="hidden" name="{{ form.tags.vars.full_name }}[]" value="' + tagValue + '">';
+                tagsList.appendChild(tagSpan);
+                tagInput.value = '';
+            }
+
+            addTagButton.addEventListener('click', function() {
+                var tagValue = tagInput.value.trim();
+                if (tagValue) {
+                    addTag(tagValue);
+                }
+            });
+
+            tagInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    var tagValue = this.value.trim();
+                    if (tagValue) {
+                        addTag(tagValue);
+                    }
+                }
+            });
+
+            tagsList.addEventListener('click', function(event) {
+                if (event.target.classList.contains('remove-tag')) {
+                    event.target.closest('.tag').remove();
+                }
+            });
+        });
+
+  
+    </script>
+
+{% endblock %}
