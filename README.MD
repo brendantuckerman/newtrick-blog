@@ -155,3 +155,7 @@ TODO: Put these in a startup script
 9. npm i
 10. npm run watch
 11. Project should be running at localhost:8080
+
+## Deployment ##
+
+1. Be sure that any fixtures have been removed, especially the users 
