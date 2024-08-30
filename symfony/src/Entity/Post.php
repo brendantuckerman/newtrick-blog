@@ -31,8 +31,8 @@ class Post
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $imagePath = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?array $tags = null;
+    #[ORM\Column(nullable: true, type: "json")]
+    private ?array $tags = [];
 
     #[ORM\ManyToOne(inversedBy: 'posts')]
     #[ORM\JoinColumn(nullable: false)]
@@ -40,6 +40,11 @@ class Post
 
     #[ORM\Column(type: "boolean", options: ["default" => false])]
     private ?bool $Published = false;
+
+    public function __construct()
+    {
+        $this->tags = [];
+    }
 
     public function getId(): ?int
     {
@@ -149,6 +154,11 @@ class Post
         });
 
         return $this;
+    }
+
+    public function hasTag(string $tag): bool
+    {
+        return in_array(trim($tag), $this->tags, true);
     }
 
     public function getUser(): ?User
