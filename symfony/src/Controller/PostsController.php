@@ -121,8 +121,10 @@ class PostsController extends AbstractController
             }
         } else {
           //Persist the title etc as image is unchanged
-          $post->setFirstName($form->get('firstName')->getData());
-          $post->setLastName($form->get('lastName')->getData());
+          $post->setTitle($form->get('title')->getData());
+          $post->setContent($form->get('content')->getData());
+          $post->setTags($form->get('tags')->getData());
+          $post->setPublished($form->get('published')->getData());
 
           $this->em->flush();
 
