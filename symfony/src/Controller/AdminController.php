@@ -27,6 +27,14 @@ class AdminController extends AbstractController
 
     }
 
+    //Index
+    #[Route('/admin', name: 'admin_index')]
+    public function adminIndex(Request $request): Response
+    {
+      return $this->render('admin/admin_index.html.twig');
+      
+    }
+
     //Create
     #[Route('/admin/user/create', name: 'create_user')]
     public function createUser(Request $request): Response

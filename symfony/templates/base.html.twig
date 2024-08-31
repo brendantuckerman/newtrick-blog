@@ -2,14 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}NewTrick{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
+
         {{ encore_entry_link_tags('app') }}
         {{ encore_entry_script_tags('app') }}
     </head>
-    <body class="bg-gray-100 min-h-screen antialiased leading-none font-sans flex flex-col">
+    <body class="bg-gray-100 min-h-screen antialiased leading-none flex flex-col">
             {% block header %}
                 <header>
                     <nav
@@ -26,12 +30,21 @@
                 NewTrick
             </span>
                             </a>
+                            {% if app.user %}
+                            <div>
+                                <p>Logged in as {{app.user.username}}</p>
+                               {% if 'ROLE_ADMIN' in app.user.roles %}
+                                 <a href="/admin">Admin Dashboard</a>
+                               {% endif %}
+                            </div>
+                            {% endif %}
+
                         </div>
 
                         <button
                                 @click="isOpen = !isOpen"
                                 type="button"
-                                class="block lg:hidden px-2 text-black hover:text-white focus:outline-none focus:text-white"
+                                class="block md:hidden px-2 text-black hover:text-white focus:outline-none focus:text-white"
                                 :class="{ 'transition transform-180': isOpen }">
 
                             <svg
@@ -55,12 +68,12 @@
                         </button>
 
                         <div
-                                class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
+                                class="w-full flex-grow md:flex md:items-center md:w-auto relative"
                                 :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }"
                                 @click.away="isOpen = false"
                                 x-show.transition="true">
 
-                            <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
+                            <ul class="absolute right-0 pt-6 lg:pt-0 list-reset md:flex justify-end flex-1 items-center">
                                 <li class="mr-3">
                                     <a
                                             class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"

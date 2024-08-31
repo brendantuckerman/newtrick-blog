@@ -7,26 +7,18 @@
 {% block body %}  
   <div class="container pt-40 flex flex-col justify-center items-center">
 
-    <h1 class="text-6xl font-bold"> NewTrick Blog </h1>
+   
     
    {% if app.user %}
-    {% if "ROLE_ADMIN" in app.user.roles %}
-      
-      <div class="card-container overflow-hidden shadow-xl bg-gray-200 relative hover:shadow-2xl hover:scale-105 duration-700 rounded">
-    <div class="card-trip-infos flex p-5 justify-center relative items-center">
-      <div>
-        <h2 class="text-5xl font-semibold mb-4">Create new post</h2>
-        <p>Create a new post.</p>
-      <a href="/posts/create" class='card-link absolute top-0 bottom-0 left-0 w-full'></a>
-      </div>
-    </div>
-    </div>
-
-    {% endif %}
+    
 
    
-
-    <p> Main Content here </p>
+  <div class="title w-full flex flex-col items-start p-8">
+    <h1 class="text-6xl font-bold leading-relaxed">That's a New Trick:
+    <br>Blog &amp; Work of
+    <br>Brendan Tuckerman
+    </h1>
+  </div>
 
     {% else %}
 
