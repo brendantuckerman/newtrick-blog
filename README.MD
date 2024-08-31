@@ -7,10 +7,11 @@ A Symfony blog site project utilising:
 - Doctrine
 - Ckeditor 5
 
-### MVP ###
+### MVP/ TODO ###
 
 - Front page with a brief intro and a list of blogs as card with tags
     - Admin has a + create new blog post link
+    - Front page has a Admin dashboard link for logged in users
 - login
 - Login leads to front if ROLE_USER, to Admin dashboard if ROLE_ADMIN
 - ROLE_USER can leave comments
@@ -18,6 +19,14 @@ A Symfony blog site project utilising:
     - User management CRUD
     - Blog post management CRUD
         - Create blog post includes CKEDITOR5
+
+TODO
+
+- Complete post crud operations
+- Implement url of blog/[title] for posts
+- Remove registration link for MVP
+- Move any CRUD operation gateways to /admin
+- Add link to admin to twig for index
 
 
 ### Entities ###
@@ -38,7 +47,8 @@ NB: The FOSC Bundle will need to be installed before creating the Posts entity t
     - Image path string
     - Text (whatever CKEDITOR needs) https://symfony.com/bundles/FOSCKEditorBundle/current/installation.html
     - Tags array
-    - Related articles (Array of paths? Or can this be handled by the tags?)
+
+## NTH ##
 
 - Comments
     - Text
@@ -159,3 +169,5 @@ TODO: Put these in a startup script
 ## Deployment ##
 
 1. Be sure that any fixtures have been removed, especially the users 
+2. Set up digital oceon droplet
+3. Follow these instructions for poiting to name server: https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/

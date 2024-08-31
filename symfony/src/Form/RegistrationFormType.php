@@ -26,6 +26,24 @@ class RegistrationFormType extends AbstractType
                 'placeholder' => 'Email'
             ],
         ])
+
+        ->add('username', TextType::class, [
+            'label' => 'Username',
+            'attr' => [                   
+                'class' => 'bg-transparent block mb-10 mx-auto border-b-2 w-1/5 h-20 text-2xl outline-none',
+                'placeholder' => 'Choose a username'
+            ],
+            'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a usernam',
+                    ]),
+                    new Length([
+                        'min' => 2,
+                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'max' => 255,
+                    ]),
+                ],
+        ])
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => 'I agree to the terms and conditions',
                 'mapped' => false,
@@ -54,8 +72,7 @@ class RegistrationFormType extends AbstractType
                     new Length([
                         'min' => 8,
                         'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
+                        'max' => 255,
                     ]),
                 ],
             ])
