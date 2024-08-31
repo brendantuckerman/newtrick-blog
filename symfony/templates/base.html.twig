@@ -26,20 +26,20 @@
                             <a
                                     class="text-black no-underline hover:text-white hover:no-underline"
                                     href="/">
-            <span class="text-2xl pl-2 font-extrabold">
-                NewTrick
-            </span>
+                                <span class="text-xl pl-2 font-extrabold">
+                                    NewTrick | Brendan Tuckerman
+                                </span>
                             </a>
-                            {% if app.user %}
-                            <div>
-                                <p>Logged in as {{app.user.username}}</p>
+                          
+                        </div>
+                          {% if app.user %}
+                            <div class="border-[1px] border-slate-600 border-round p-4">
+                                <p class="leading-normal">Logged in as: {{app.user.username}}</p>
                                {% if 'ROLE_ADMIN' in app.user.roles %}
-                                 <a href="/admin">Admin Dashboard</a>
+                                 <a href="/admin" class="underline text-blue-600">Admin Dashboard</a>
                                {% endif %}
                             </div>
                             {% endif %}
-
-                        </div>
 
                         <button
                                 @click="isOpen = !isOpen"
