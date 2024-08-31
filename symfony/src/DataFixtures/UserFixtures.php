@@ -21,6 +21,7 @@ class UserFixtures   extends Fixture
         $user = new User();
         $user->setEmail('admin@newtrick.com');
         $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
+        $user->setUsername('Admin');
         $user->setVerified(true);
         $hashedPassword = $this->passwordHasher->hashPassword($user, $_ENV['ADMIN_PW']);
         $user->setPassword($hashedPassword);
