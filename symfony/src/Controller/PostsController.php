@@ -150,11 +150,11 @@ class PostsController extends AbstractController
 
     }
 
-    // READ one
-    #[Route('/posts/{id}', methods:['GET'], name: 'post')]
-    public function show($id): Response
+    // READ one (Show)
+    #[Route('/posts/{slug}', methods:['GET'], name: 'post')]
+    public function show(Post $post): Response
     {
-        $post =  $this->postRepository->find($id);
+        // $post =  $this->postRepository->find($id);
 
         return $this->render('posts/show.html.twig', [
             'post' => $post

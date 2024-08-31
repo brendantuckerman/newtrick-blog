@@ -6,6 +6,7 @@ use App\Repository\PostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[HasLifecycleCallbacks]
@@ -40,6 +41,9 @@ class Post
 
     #[ORM\Column(type: "boolean", options: ["default" => false])]
     private ?bool $Published = false;
+
+    #[ORM\Column(length: 255, nullable: true, unique: true)]
+    private ?string $slug = null;
 
     public function __construct()
     {
@@ -184,4 +188,25 @@ class Post
 
         return $this;
     }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(?string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    // #[ORM\PrePersist]
+    // #[ORM\PreUpdate]
+    // public function updateSlug(SluggerInterface $slugger): void
+    // {
+    //     if (!$this->slug || $this->slug !== $slugger->slug($this->title)->lower()) {
+    //         $this->slug = $slugger->slug($this->title)->lower();
+    //     }
+    // }
 }
