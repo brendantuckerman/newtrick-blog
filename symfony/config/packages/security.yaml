@@ -37,7 +37,6 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
-        - { path: ^/posts, roles: ROLE_ADMIN }
 
       # Allow access to index, login, and register routes for everyone
         - { path: ^/$, roles: PUBLIC_ACCESS }

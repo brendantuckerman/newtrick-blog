@@ -28,7 +28,7 @@ class PostsController extends AbstractController
     }
 
     //CREATE
-    #[Route('posts/create', name: 'create_post')]
+    #[Route('/admin/posts/create', name: 'create_post')]
     public function create(Request $request): Response
     {
         $post = new Post();
@@ -73,7 +73,7 @@ class PostsController extends AbstractController
     }
 
     //UPDATE (edit)
-    #[Route('posts/edit/{id}', name: 'edit_posts')]
+    #[Route('admin/posts/edit/{id}', name: 'edit_posts')]
     public function edit($id, Request $request): Response
     {
       $post = $this->postRepository->find($id);
@@ -168,7 +168,7 @@ class PostsController extends AbstractController
 
 
     //Delete
-    #[Route('/posts/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete_post')]
+    #[Route('admin/posts/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete_post')]
     public function delete($id): Response
     {
       $post = $this->postRepository->find($id);

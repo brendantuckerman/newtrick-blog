@@ -8,18 +8,12 @@
   <div class="container flex flex-col justify-center items-center">
 
    
-    
-   {% if app.user %}
-    
-
-   
   <div class="title w-full flex flex-col items-start">
     <h1 class="text-7xl font-semibold leading-relaxed">That's a New Trick:
     <br>Blog of 🧑🏻‍💻 <br> Brendan Tuckerman
     </h1>
   </div>
-
-    {% else %}
+   {% if not app.user %}
 
     <div class="grid md:grid-cols-2 grid-cols-1 w-full p-10 gap-8">
 
@@ -58,7 +52,16 @@
     <p>'Author' is a global variable set in the twig.yaml file</p> #}
     {% endif %}
   </div>
-
+  {# Posts/ Most recent Articles section #}
+  {% if posts is not empty%}
+  <div class="posts-summary">
+    <h2>Newest Tricks</h2>
+    {% for post in posts %}
+      {{post.title}}
+    {% endfor %}
+    <a href="/posts">See all posts</a>
+  </div>
+  {% endif %}
   
 
 {% endblock %}   

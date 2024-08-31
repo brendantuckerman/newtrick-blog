@@ -22,15 +22,18 @@ A Symfony blog site project utilising:
 
 TODO
 
-- Complete post crud operations 
-- Update links in twig for "show" posts  to <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}">{{ post.title }}</a>
+- Complete post crud operations  [x]
+- Update links in twig for "show" posts  to <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}">{{ post.title }}</a> [x]
 - Implement url of blog/[title] for posts [x]  
 - change usrl from post/ to post/year/title [x]
 - Remove registration link for MVP 
-- Move any CRUD operation gateways to /admin
-- Add link to admin to twig for index
+- Move any CRUD operation gateways to /admin [x]
+- Create table listing for users show all and posts show all
+- Add link to admin to twig for index [x]
 - Adjust order of form elements
 - Adjust styling of forms 
+- Mobile first design
+- 400 and 500 default pages
 
 TODO:NTH
 
@@ -66,6 +69,25 @@ NB: The FOSC Bundle will need to be installed before creating the Posts entity t
 USERS have many posts (locked to admin)
 USERS have many comments
 POSTS have many comments
+
+### IA/Security ###
+
+-- / (public)
+--- /contact (public)
+--- /about (public) 
+--- /posts (public) [x]
+---- /posts/show/{year}/{slug} (public)
+-- /admin (admin) [x]
+--- /admin/posts/edit/{id} (admin) [x]
+--- /admin/posts/create (admin) [x]
+--- /admin/posts/delete (admin) [x]
+--- /admin/users (admin)
+--- /admin/users/edit/{id} (admin)
+--- /admin/users/create (admin)
+--- /admin/users/delete (admin)
+
+
+### Set Up ###
 
 See composer.json for composer packages and package.json for npm packages.
 

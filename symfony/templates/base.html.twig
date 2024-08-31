@@ -17,7 +17,7 @@
             {% block header %}
                 <header>
                     <nav
-                            class="text-black flex items-center justify-between flex-wrap p-6 fixed w-full z-10 top-0"
+                            class="text-black flex items-center justify-between flex-wrap p-6 w-full z-10 top-0"
                             x-data="{ isOpen: false }"
                             @keydown.escape="isOpen = false"
                           > 
@@ -140,7 +140,7 @@
                 </header>
             {% endblock %}
 
-            <div class="wrapper py-40 px-12 flex flex-col grow">
+            <div class="wrapper py-20 px-12 flex flex-col grow">
             {% block body %}
             
             {% endblock %}
