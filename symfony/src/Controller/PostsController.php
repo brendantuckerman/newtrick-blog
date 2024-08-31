@@ -151,13 +151,17 @@ class PostsController extends AbstractController
     }
 
     // READ one (Show)
-    #[Route('/posts/{slug}', methods:['GET'], name: 'post')]
-    public function show(Post $post): Response
+    #[Route('/posts/show/{year}/{slug}', methods:['GET'], name: 'post')]
+    public function show(int $year, string $slug): Response
     {
-        // $post =  $this->postRepository->find($id);
+        $post = $this->postRepository->findOneBy(['slug' => $slug]);
+
+        if (!$post || $post->getCreatedAt()->format('Y') != $year) {
+            throw $this->createNotFoundException('The post does not exist');
+        }
 
         return $this->render('posts/show.html.twig', [
-            'post' => $post
+            'post' => $post,
         ]);
 
     }

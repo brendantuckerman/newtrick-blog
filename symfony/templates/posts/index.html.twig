@@ -38,14 +38,15 @@
                 </h2>
 
                 <span class="text-gray-500">
-                    By <span class="italic text-sm text-gray-800">{{post.user.email}} | {{  'now' | date('Y') }}
+                    By <span class="italic text-sm text-gray-800">{{post.user.username}} | {{  post.createdAt|date('d-m-yy') }}
                 </span>
 
                 {# <p class="text-base text-gray-700 pt-4 pb-10 leading-8 font-light">
                     {{ class.description }}
                 </p> #}
                 <div class="mt-8">
-                    <a href="/posts/{{ post.id }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded transition transition-all hover:bg-gray-800 hover:text-white">
+              
+                    <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded transition transition-all hover:bg-gray-800 hover:text-white">
                         Keep Reading
                     </a>
                 </div>

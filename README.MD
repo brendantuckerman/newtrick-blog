@@ -22,12 +22,23 @@ A Symfony blog site project utilising:
 
 TODO
 
-- Complete post crud operations
-- Implement url of blog/[title] for posts
-- Remove registration link for MVP
+- Complete post crud operations 
+- Update links in twig for "show" posts  to <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}">{{ post.title }}</a>
+- Implement url of blog/[title] for posts [x]  
+- change usrl from post/ to post/year/title [x]
+- Remove registration link for MVP 
 - Move any CRUD operation gateways to /admin
 - Add link to admin to twig for index
+- Adjust order of form elements
+- Adjust styling of forms 
 
+TODO:NTH
+
+- Comments
+    - Text
+    - created at
+- Are you sure to delete of posts
+- User profile
 
 ### Entities ###
 
@@ -48,11 +59,7 @@ NB: The FOSC Bundle will need to be installed before creating the Posts entity t
     - Text (whatever CKEDITOR needs) https://symfony.com/bundles/FOSCKEditorBundle/current/installation.html
     - Tags array
 
-## NTH ##
 
-- Comments
-    - Text
-    - created at
 
 ### Relationships ###
 
