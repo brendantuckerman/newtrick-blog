@@ -1,8 +1,29 @@
 {# postPreview.html.twig #}
 {% macro renderPostPreview(post) %}
-    <div class="post-preview w-full">
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.user.username }}</p>
-        <a href="/">Read more</a>
+{% set previewText = post.content|striptags|slice(0, 250)|join(' ') ~ '...' %}
+    <div class="post-preview w-full flex flex-col justify-center border-b-[1px] border-black">
+        <div class="post-preview-img">
+            <img 
+                src={{post.imagePath}}
+                alt="An image from the article {{post.title}}"
+                class="rounded"
+                
+            >
+            </img>
+        </div>
+        <div class="post-preview-text py-4 flex flex-col">
+            <h3 class="text-5xl font-bold mb-2">{{ post.title }}</h3>
+            {% for tag in post.tags %}
+                <span>#{{ tag }} </span>
+            {% endfor %}
+            <p class="mb-2">by {{ post.user.username }}</p>
+            <p class="mb-2">{{ post.createdAt|date('d-m-y')}}
+            <div class="leading-normal font-bold mb-2">
+                {{ previewText }}
+            </div>
+            <div class="read-more p-4 border-[1px] border-black rounded-full max-w-max">
+                <a href="/">Read more ></a>
+            </div>
+        <div>
     </div>
 {% endmacro %}
