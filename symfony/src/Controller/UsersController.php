@@ -30,7 +30,7 @@ class UsersController extends AbstractController
     // No create as it is found in admin
 
     //UPDATE (edit)
-    #[Route('users/edit/{id}', name: 'edit_users')]
+    #[Route('profile/edit/{id}', name: 'edit_users')]
     public function edit($id, Request $request): Response
     {
       $user = $this->userRepository->find($id);
@@ -51,19 +51,19 @@ class UsersController extends AbstractController
     }
     
       // READ all
-    #[Route('/users', methods:['GET'], name: 'users')]
+    #[Route('/admin/users', methods:['GET'], name: 'users')]
     public function index(): Response
     {
         $users =  $this->userRepository->findAll();
 
-        return $this->render('users/index.html.twig', [
+        return $this->render('admin/users_index.html.twig', [
             'users' => $users
         ]);
 
     }
 
     // READ one
-    #[Route('/users/{id}', methods:['GET'], name: 'profile')]
+    #[Route('/profile/{id}', methods:['GET'], name: 'profile')]
     public function show($id): Response
     {
         $user =  $this->userRepository->find($id);
@@ -76,7 +76,7 @@ class UsersController extends AbstractController
 
 
     //Delete
-    #[Route('/users/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete_user')]
+    #[Route('admin/users/delete/{id}', methods: ['GET', 'DELETE'], name: 'delete_user')]
     public function delete($id): Response
     {
       $user = $this->userRepository->find($id);

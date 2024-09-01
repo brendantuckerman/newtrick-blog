@@ -41,4 +41,16 @@ class IndexController extends AbstractController
         'posts' => $posts
       ]);
   }
+
+  #[Route('about/', methods: ['GET'], name: 'about')]
+  public function about(): Response 
+  {
+    return $this->render('about.html.twig');
+  }
+
+  #[Route('contact/', methods: ['GET'], name: 'about')]
+  public function contact(): Response 
+  {
+    return $this->render('contact.html.twig');
+  }
 }

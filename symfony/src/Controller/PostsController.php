@@ -87,38 +87,37 @@ class PostsController extends AbstractController
 
       //Check whether form has been submitted
       if ($form->isSubmitted() && $form->isValid()) {
-        if ($imagePath) {
-          if ($post->getImagePath() !== null) {
-            if (file_exists(
-                  $this->getParameter('kernel.project_dir') . '/public/' . $post->getImagePath()
-                )) {
+          if ($imagePath) {
+            if ($post->getImagePath() !== null) { //this is the test that is failing
+                if (file_exists(
+                    $this->getParameter('kernel.project_dir') . '/public/' . $post->getImagePath()
+                    )) {
              
-              
-                $this->getParameter('kernel.project_dir') . '/public/' .  $post->getImagePath();
-
-                //Give image a unique id
-                $newFileName = uniqid() . "." .$imagePath->guessExtension();
-
-                //Upload the image
-                try {
-                  $imagePath->move(
-                    //Accepts 2 params:
-                    // Where to look
-                    $this->getParameter('kernel.project_dir') . '/public/uploads',
-                    //New file name
-                    $newFileName
-                  );
-                } catch  (FileException $e){
-                  return new Response($e->getMessage());
+                    $this->getParameter('kernel.project_dir') . '/public/' .  $post->getImagePath();
+                    } 
                 }
-    
-                $post->setImagePath('/uploads/' . $newFileName);
+            //Give image a unique id
+            $newFileName = uniqid() . "." .$imagePath->guessExtension();
 
-                $this->em->flush();
-
-                return $this->redirectToRoute('posts');
-              } 
+            //Upload the image
+            try {
+                $imagePath->move(
+                //Accepts 2 params:
+                // Where to look
+                $this->getParameter('kernel.project_dir') . '/public/uploads',
+                //New file name
+                $newFileName
+                );
+            } catch  (FileException $e){
+                return new Response($e->getMessage());
             }
+
+            $post->setImagePath('/uploads/' . $newFileName);
+
+            $this->em->flush();
+
+            return $this->redirectToRoute('posts');
+             
         } else {
           //Persist the title etc as image is unchanged
           $post->setTitle($form->get('title')->getData());

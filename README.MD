@@ -33,7 +33,12 @@ TODO
 - Adjust order of form elements
 - Adjust styling of forms 
 - Mobile first design
-- 400 and 500 default pages
+- 400 and 500 default pages for production only
+- Testing: 
+    - Logged in
+    - Logged out
+    - Url direct into address bar
+    - Through links
 
 TODO:NTH
 
@@ -81,10 +86,12 @@ POSTS have many comments
 --- /admin/posts/edit/{id} (admin) [x]
 --- /admin/posts/create (admin) [x]
 --- /admin/posts/delete (admin) [x]
---- /admin/users (admin)
---- /admin/users/edit/{id} (admin)
+--- /admin/users (admin) [x]
+--- /admin/users/edit/{id} (admin) 
 --- /admin/users/create (admin)
 --- /admin/users/delete (admin)
+--- /profile (public)
+--- /profile/edit/{id} (public--their profile only)
 
 
 ### Set Up ###

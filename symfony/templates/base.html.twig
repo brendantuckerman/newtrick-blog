@@ -97,7 +97,7 @@
                                 </li>    #}
 
                             {%  endif %}  
-
+                            {% if app.request.pathInfo is not same as('/') %}
                                 <li class="mr-3">
                                     <a
                                             class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
@@ -106,13 +106,22 @@
                                         Home
                                     </a>
                                 </li>
-
+                            {% endif %}
                                 <li class="mr-3">
                                     <a
                                             class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                             href="/posts"
                                             @click="isOpen = false"
                                     >Blog
+                                    </a>
+                                </li>
+
+                                 <li class="mr-3">
+                                    <a
+                                            class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
+                                            href="/contact"
+                                            @click="isOpen = false">
+                                        About
                                     </a>
                                 </li>
 
@@ -140,7 +149,7 @@
                 </header>
             {% endblock %}
 
-            <div class="wrapper py-20 px-12 flex flex-col grow">
+            <div class="wrapper py-8 px-12 flex flex-col grow">
             {% block body %}
             
             {% endblock %}
