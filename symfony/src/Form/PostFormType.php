@@ -45,7 +45,7 @@ class PostFormType extends AbstractType
                 'row_attr' => ['class' => 'post-form-row-wrapper']
             ])
             ->add('tags', CollectionType::class, [
-                'entry_type' => TextType::class,
+                'entry_type' => TextType::class, 
                 'allow_add' => true,
                 'allow_delete' => true,
                 'prototype' => true,

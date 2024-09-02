@@ -7,9 +7,32 @@
         Edit post
     </h1>
     <div class="form-container py-8">
-        {{ form_start(form) }}
+      {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.imagePath) }}
+        {{ form_row(form.content) }}
+        
+        <div class="form-group">
+          {{ form_label(form.tags) }}
+              <div id="tags-container">
+                  <input type="text" id="tag-input" placeholder="Enter a tag">
+                  <button type="button" id="add-tag">Add Tag</button>
+                </div>
+            <div id="tags-list">
+                {% for tag in form.tags %}
+                    <span class="tag">
+                        {{ tag.vars.value }}
+                        <button type="button" class="remove-tag">&times;</button>
+                        {{ form_widget(tag) }}
+                    </span>
+                {% endfor %}
+            </div>
+            {{ form_errors(form.tags) }}
+        </div>
 
-            {{ form_widget(form) }}
+        {{ form_row(form.user) }}
+        {{ form_row(form.published) }}
+
         
             <button    
                 type="submit"

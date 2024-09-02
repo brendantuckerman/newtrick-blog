@@ -2,6 +2,15 @@
 {% block body %}
 <div class="w-full text-center pb-8">
   <h1 class="text-7xl font-bold">All Posts</h1>
+   {% if app.user %}
+        <div class="mx-auto w-4/5 my-8">
+            <a 
+                href={{ path('create_post') }}
+                class="uppercase border border-gray-500 text-lg py-4 px-6 rounded transition transition-all bg-gray-800 text-white hover:bg-white hover:text-gray-800">
+                Create New post
+            </a>
+        </div>
+    {% endif %}
 </div>
 
  <div class="posts-admin-table-wrapper flex flex-col" >

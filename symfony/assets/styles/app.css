@@ -17,17 +17,17 @@
     }
 
     /* Admin - forms */
-    #post_form{
+    form[name='post_form']{
 
       @apply flex flex-col;
 
-      .post-form-row-wrapper{
-
+      .post-form-label{
+        @apply pr-20 uppercase text-black;
+      }
+      .post-form-row-wrapper,
+      .form-group .post-form-row-wrapper
+      {
         @apply flex items-center py-8;
-
-        .post-form-label{
-          @apply pr-20 uppercase text-black;
-        }
 
       }
 

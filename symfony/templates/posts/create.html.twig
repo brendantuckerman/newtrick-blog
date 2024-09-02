@@ -1,33 +1,36 @@
 {% extends "./base.html.twig" %}
 {% block body %}
 <div class="w-4/5 m-auto pt-40">
+<a href={{ path('admin_posts_index') }} class='text-blue-600 p-4'> &lt; Back to all posts</a>
     <h1 class="text-6xl text-center pb-12">
         Create a new post
     </h1>
-    <a href={{ path('admin_posts_index') }}>Back to all posts</a>
 
    {{ form_start(form) }}
-        {{ form_row(form.title) }}
-        {{ form_row(form.imagePath) }}
-        {{ form_row(form.content) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.imagePath) }}
+    {{ form_row(form.content) }}
         
-        <div class="form-group">
-            {{ form_label(form.tags) }}
-            <div id="tags-container">
-                <input type="text" id="tag-input" placeholder="Enter a tag">
-                <button type="button" id="add-tag">Add Tag</button>
-            </div>
-            <div id="tags-list">
-                {% for tag in form.tags %}
-                    <span class="tag">
-                        {{ tag.vars.value }}
-                        <button type="button" class="remove-tag">&times;</button>
-                        {{ form_widget(tag) }}
-                    </span>
-                {% endfor %}
-            </div>
-            {{ form_errors(form.tags) }}
+
+    <div id="tags-container" class="post-form-row-wrapper">
+      {{ form_label(form.tags) }}
+        <input type="text" id="tag-input" placeholder="Enter a tag" class="'bg-transparent p-8 m8 block border-b-2 w-full h-20 text-6xl outline-none'">
+        <button type="button" id="add-tag" class="rounded-full p-4 border-black-2 text-7xl" >+</button>
+           
+        <div id="tags-list" class="leading-normal">
+          <p>Tags:</p>
+          
+            {% for tag in form.tags %}
+                <span class="tag">
+                    {{ tag.vars.value }}
+                    <button type="button" class="remove-tag">&times;</button>
+                    {{ form_widget(tag) }}
+                </span>
+            {% endfor %}
         </div>
+            {{ form_errors(form.tags) }}
+      </div>
+
 
         {{ form_row(form.user) }}
         {{ form_row(form.published) }}
@@ -35,7 +38,7 @@
         <button type="submit" class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
             Submit Post
         </button>
-    {{ form_end(form) }}
+    {{ form_end(form, {'render_rest': false}) }}
 </div>
 
 {% endblock %}
