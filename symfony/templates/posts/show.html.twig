@@ -2,9 +2,9 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
-    <div class="w-full mx-auto">
-        <div class="post-full-heding-info w-4/5 md:w-3/5 m-auto">
-            <h1 class="pt-4 text-7xl  text-4xl font-bold text-center">
+    <div class="w-full mx-auto border-t-8 border-black">
+        <div class="post-full-heding-info m-auto ">
+            <h1 class="text-7xl font-semibold text-end">
             {% if post %}
                 {{ post.title }} 
             {% else %}
