@@ -45,6 +45,9 @@ class Post
     #[ORM\Column(length: 255, nullable: true, unique: true)]
     private ?string $slug = null;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $imageAltText = null;
+
     public function __construct()
     {
         $this->tags = [];
@@ -209,4 +212,16 @@ class Post
     //         $this->slug = $slugger->slug($this->title)->lower();
     //     }
     // }
+
+    public function getImageAltText(): ?string
+    {
+        return $this->imageAltText;
+    }
+
+    public function setImageAltText(?string $imageAltText): static
+    {
+        $this->imageAltText = $imageAltText;
+
+        return $this;
+    }
 }

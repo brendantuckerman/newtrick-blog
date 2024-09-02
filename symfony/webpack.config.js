@@ -86,7 +86,7 @@ Encore
     .copyFiles({
         from: './assets/images',
         to: 'images/[path][name].[hash:8].[ext]',
-        pattern: /\.(png|jpg|jpeg|avif|webp)$/
+        pattern: /\.(png|jpg|jpeg|avif|webp|svg)$/
     })
 
     //Ckeditory

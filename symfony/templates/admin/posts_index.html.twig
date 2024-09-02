@@ -30,7 +30,7 @@
      {% if posts is not empty%}
       {% for post in posts %}
         <tr class="h-20">
-          <td>{{ post.title }}</td>
+          <td> <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}"> {{ post.title }}</a></td>
           <td> {{ post.user.email }}</td>
           <td> {{ post.createdAt|date() }} </td>
           <td> {{ post.updatedAt|date() }}</td>

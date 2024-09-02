@@ -19,7 +19,7 @@
             {% block header %}
                 <header>
                     <nav
-                            class="text-black flex items-center justify-between flex-wrap p-6 w-full z-10 top-0"
+                            class="text-black flex items-center justify-between flex-wrap p-6 w-screen z-10 top-0"
                             x-data="{ isOpen: false }"
                             @keydown.escape="isOpen = false"
                           > 
@@ -46,11 +46,11 @@
                         <button
                                 @click="isOpen = !isOpen"
                                 type="button"
-                                class="block md:hidden px-2 text-black hover:text-white focus:outline-none focus:text-white"
+                                class="block lg:hidden px-2 text-black hover:text-blue-600 focus:outline-none focus:text-blue-600"
                                 :class="{ 'transition transform-180': isOpen }">
 
                             <svg
-                                    class="h-6 w-6 fill-current"
+                                    class="h-12 w-12 fill-current"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24">
 
@@ -70,12 +70,12 @@
                         </button>
 
                         <div
-                                class="w-full flex-grow md:flex md:items-center md:w-auto relative"
+                                class="w-full flex-grow lg:flex lg:items-center lg:w-auto relative"
                                 :class="{ 'block shadow-3xl': isOpen, 'hidden': !isOpen }"
                                 @click.away="isOpen = false"
                                 x-show.transition="true">
 
-                            <ul class="absolute right-0 pt-6 lg:pt-0 list-reset md:flex justify-end flex-1 items-center">
+                            <ul class="absolute right-0 pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
                             {% if app.user %}
 
                               <li class="mr-3">

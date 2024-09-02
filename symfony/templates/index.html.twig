@@ -5,63 +5,22 @@
 {% endblock %}
 
 {% block body %}  
-  <div class="container flex flex-col justify-center items-center">
-
-   
-  <div class="title w-full flex flex-col items-start py-24">
-    <h1 class="text-7xl font-semibold leading-relaxed">That's a <span class="underline">New Trick.</span>
-    <br>Blog of 🧑🏻‍💻 <br> Brendan Tuckerman
-    </h1>
-  </div>
-   {% if not app.user %}
-
-    <div class="grid md:grid-cols-2 grid-cols-1 w-full p-10 gap-8">
-
-    {# Cards with some tricky css #}
-
-    {# Register #}
-
-  <div class="card-container overflow-hidden shadow-xl bg-gray-200 relative hover:shadow-2xl hover:scale-105 duration-700 rounded">
-    <div class="card-trip-infos flex p-5 justify-center relative items-center">
-      <div>
-        <h2 class="text-5xl font-semibold mb-4">Register</h2>
-        <p>If you are new to the site, click here to register.</p>
-      <a href="/register" class='card-link absolute top-0 bottom-0 left-0 w-full'></a>
-      </div>
+  <div class="index-page-content flex flex-col">
+    <div class="title w-full flex flex-col items-start py-24">
+      <h1 class="text-8xl leading-snug lg:text6xl font-semibold lg:leading-relaxed">That's a <span class="underline">New Trick.</span>
+      <br>Blog of 🧑🏻‍💻 <br> Brendan Tuckerman
+      </h1>
     </div>
-  </div>
-  {# Login #}
-
-  <div class="card-container overflow-hidden shadow-xl bg-gray-200 relative hover:shadow-2xl hover:scale-105 duration-700 rounded">
-    <div class="card-trip-infos flex p-5 justify-center relative items-center">
-      <div>
-        <h2 class="text-5xl font-semibold mb-4">Login</h2>
-        <p>If you are have an existing account, click here to login</p>
-      <a href="/register" class='card-link absolute top-0 bottom-0 left-0 w-full'></a>
-      </div>
+    {# Posts/ Most recent Articles section #}
+    {% if posts is not empty%}
+    <div class="posts-summary border-t-4 border-black py-4">
+      <h2 class="text-6xl text-end">Newest Tricks</h2>
+      {% for post in posts %}
+          {{ postPreview.renderPostPreview(post) }}
+      {% endfor %}
     </div>
-  </div>    
-    {#  Some neat tricks:
-    
-    <p>This information is found at self: {{ _self }} </p>
-
-    <p>The charset being used is {{ _charset }} </p>
-
-    <p>This page was created by {{ author }}</p> 
-
-    <p>'Author' is a global variable set in the twig.yaml file</p> #}
+    <a href{{ path('posts') }} class="text-left uppercase font-semibold underline text-blue-600"> See all posts &gt;</a>
     {% endif %}
   </div>
-  {# Posts/ Most recent Articles section #}
-  {% if posts is not empty%}
-  <div class="posts-summary border-t-4 border-black py-4">
-    <h2 class="text-6xl text-end">Newest Tricks</h2>
-    {% for post in posts %}
-        {{ postPreview.renderPostPreview(post) }}
-    {% endfor %}
-    <a href="/posts">See all posts</a>
-  </div>
-  {% endif %}
-  
 
 {% endblock %}   

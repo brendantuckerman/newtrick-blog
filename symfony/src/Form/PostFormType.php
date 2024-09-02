@@ -37,6 +37,13 @@ class PostFormType extends AbstractType
                 'label_attr' => ['class' => 'post-form-label'],
                 'row_attr' => ['class' => 'post-form-row-wrapper']
             ])
+            ->add('imageAltText', TextType::class,  [
+                'required' => true,
+                'mapped' => false,
+                'label' => 'Alt text',
+                'label_attr' => ['class' => 'post-form-label'],
+                'row_attr' => ['class' => 'post-form-row-wrapper']
+            ])
             ->add('content',  CKEditorType::class, [
                 'config_name' => 'my_config',
                 'required' => false,
