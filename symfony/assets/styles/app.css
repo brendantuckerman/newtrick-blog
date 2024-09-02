@@ -10,8 +10,28 @@
       background-color: #f0f0f0;
     }
 
+    /* Admin - Posts */
+
     .posts-admin-table-body tr:nth-child(odd){
       @apply bg-slate-200;
     }
+
+    /* Admin - forms */
+    #post_form{
+
+      @apply flex flex-col;
+
+      .post-form-row-wrapper{
+
+        @apply flex items-center py-8;
+
+        .post-form-label{
+          @apply pr-20 uppercase text-black;
+        }
+
+      }
+
+    }
+
   }
 

@@ -216,3 +216,8 @@ TODO: Put these in a startup script
 - Drupal resources
 - Encountering Drupal
 - RTFM: In praise of good documentation
+
+## Styling ##
+
+blue-600
+bg: #f0f0f0
