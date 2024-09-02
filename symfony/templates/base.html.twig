@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}NewTrick{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,10 +76,10 @@
                                 @click.away="isOpen = false"
                                 x-show.transition="true">
 
-                            <ul class="absolute right-0 pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
+                            <ul class="absolute right-0 lg:pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center bg-[#f0f0f0] shadow-lg lg:shadow-none w-40 lg:w-auto">
                             {% if app.user %}
 
-                              <li class="mr-3">
+                              <li class="mr-3 border-b-[1px] border-black lg:border-none">
                                     <a
                                         class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                         href={{ app.user  ? '/logout' : '/login' }}
@@ -100,7 +101,7 @@
 
                             {%  endif %}  
                             {% if app.request.pathInfo is not same as('/') %}
-                                <li class="mr-3">
+                                <li class="mr-3 border-b-[1px] border-black lg:border-none">
                                     <a
                                             class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                             href="/"
@@ -109,7 +110,7 @@
                                     </a>
                                 </li>
                             {% endif %}
-                                <li class="mr-3">
+                                <li class="mr-3 border-b-[1px] border-black lg:border-none">
                                     <a
                                             class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                             href="/posts"
@@ -118,7 +119,7 @@
                                     </a>
                                 </li>
 
-                                 <li class="mr-3">
+                                 <li class="mr-3 border-b-[1px] border-black lg:border-none">
                                     <a
                                             class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                             href="/contact"
@@ -127,7 +128,7 @@
                                     </a>
                                 </li>
 
-                                <li class="mr-3">
+                                <li class="mr-3 border-b-[1px] border-black lg:border-none">
                                     <a
                                             class="inline-block text-gray-700 no-underline hover:text-blue-600 hover:text-underline py-2 px-4"
                                             href="/contact"
@@ -151,7 +152,7 @@
                 </header>
             {% endblock %}
 
-            <div class="wrapper py-8 px-12 flex flex-col grow">
+            <div class="wrapper py-8 px-4 sm:px-8 md:px-12 flex flex-col grow">
             {% block body %}
             
             {% endblock %}

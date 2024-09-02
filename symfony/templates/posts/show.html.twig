@@ -2,48 +2,52 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
-    <div class="sm:w-3/5 w-4/5 mx-auto">
-        <h1 class="pt-20 sm:text-5xl md:text-7xl text-4xl font-bold text-center">
-         {% if post %}
-            {{ post.title }} 
-          {% else %}
-           Untitled Post
-          {% endif %}
-        </h1>
+    <div class="w-full mx-auto">
+        <div class="post-full-heding-info w-4/5 md:w-3/5 m-auto">
+            <h1 class="pt-4 text-7xl  text-4xl font-bold text-center">
+            {% if post %}
+                {{ post.title }} 
+            {% else %}
+            Untitled Post
+            {% endif %}
+            </h1>
 
-        <div class="py-10 text-center">
-            <div class="inline-block sm:pt-1 leading-normal">
-                <h2 class="font-bold">
-                    Written by {{post.user.username}}
-                </h2>
+            <div class="py-4 text-center">
+                <div class="inline-block sm:pt-1 leading-normal">
+                    <h2 class="font-bold">
+                        Written by {{post.user.username}}
+                    </h2>
 
-                <p class="text-sm text-gray-600">
-                    {{ post.createdAt | date('d M Y') }} 
-                </p>
+                    <p class="text-sm text-gray-600">
+                        {{ post.createdAt | date('d M Y') }} 
+                    </p>
 
-                 <p class="text-sm text-gray-600">
-                    {% for tag in post.tags %}
-                        <span>#{{tag}}</span>
-                    {% endfor %}
-                </p>
+                    <p class="text-sm text-gray-600">
+                        {% for tag in post.tags %}
+                            <span>#{{tag}}</span>
+                        {% endfor %}
+                    </p>
 
+                </div>
             </div>
         </div>
-        {% if post.imagePath is not empty %}
-      <img 
-          src={{ post.imagePath }}
-          alt='{{ post.imageAltText }}'
-          class="rounded"   
-        >
-        {% else %}
+        <div class="w-full image-wrapper">
+            {% if post.imagePath is not empty %}
         <img 
-        src="{{ asset('build/images/php.31bcfd02.webp') }}"
-        alt="An illustration of a stuffed PHP elephant placed on the keyboard of a laptop."
-        class="rounded"
-        >
+            src={{ post.imagePath }}
+            alt='{{ post.imageAltText }}'
+            class="rounded w-full"   
+            >
+            {% else %}
+            <img 
+            src="{{ asset('build/images/php.31bcfd02.webp') }}"
+            alt="An illustration of a stuffed PHP elephant placed on the keyboard of a laptop."
+            class="rounded w-full"
+            >
 
-        {% endif %}
-        <div class="post-main-content pt-8">
+            {% endif %}
+        </div>
+        <div class="post-main-content pt-8 w-4/5 md:w-3/5 m-auto">
             {{post.content|raw}}
         </div>
     </div>
