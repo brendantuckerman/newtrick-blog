@@ -10,8 +10,10 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
 
-        {{ encore_entry_link_tags('app') }}
-        {{ encore_entry_script_tags('app') }}
+        {% block javascripts %}
+            {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </head>
     <body class="bg-gray-100 min-h-screen antialiased leading-none flex flex-col">
             {% block header %}

@@ -21,7 +21,8 @@ A Symfony blog site project utilising:
         - Create blog post includes CKEDITOR5
 
 TODO
-
+- tags are not being posted (text->json?)
+- js should only fire on the pages it needs to
 - Complete post crud operations  [x]
 - Update links in twig for "show" posts  to <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}">{{ post.title }}</a> [x]
 - Implement url of blog/[title] for posts [x]  
@@ -207,3 +208,11 @@ TODO: Put these in a startup script
 1. Be sure that any fixtures have been removed, especially the users 
 2. Set up digital oceon droplet
 3. Follow these instructions for poiting to name server: https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/
+
+## Topic Lists ##
+
+- The bland dullness of AI writing
+- How to add CKeditor5 to Symfony 5
+- Drupal resources
+- Encountering Drupal
+- RTFM: In praise of good documentation

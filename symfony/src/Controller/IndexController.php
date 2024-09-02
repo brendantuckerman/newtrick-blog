@@ -30,7 +30,10 @@ class IndexController extends AbstractController
   #[Route('/', methods: ['GET'], name: 'index')]
   public function index(Request $request): Response
   {
+    //Display the 5 most recent published articles
     $posts = $this->postRepository->createQueryBuilder('p')
+    ->where('p.Published = :Published')
+    ->setParameter('Published', true)
     ->orderBy('p.createdAt', 'DESC')
     ->setMaxResults(5)
     ->getQuery()

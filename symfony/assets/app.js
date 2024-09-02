@@ -12,5 +12,5 @@ import './styles/app.css';
 //Import CKEDITOR 5
 import './js/ckeditor.js'; //Added directly.
 
-
-
+//Tags handler
+import './js/tagsHandler.js';

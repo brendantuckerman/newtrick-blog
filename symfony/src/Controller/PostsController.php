@@ -59,6 +59,12 @@ class PostsController extends AbstractController
 
           }
 
+          // Ensure tags are set correctly
+          $tags = $form->get('tags')->getData();
+          $newpost->setTags($tags);
+
+          
+
           $this->em->persist($newpost);
           $this->em->flush();
 
@@ -173,7 +179,7 @@ class PostsController extends AbstractController
       $post = $this->postRepository->find($id);
       $this->em->remove($post);
       $this->em->flush();
-      return $this->redirectToRoute('posts');
+      return $this->redirectToRoute('admin_posts_index');
 
     }
 

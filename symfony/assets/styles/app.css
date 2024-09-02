@@ -9,4 +9,9 @@
       font-family:  'Inter Tight', system-ui, sans-serif !important;
       background-color: #f0f0f0;
     }
+
+    .posts-admin-table-body tr:nth-child(odd){
+      @apply bg-slate-200;
+    }
   }
+

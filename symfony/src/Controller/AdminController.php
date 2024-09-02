@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Post;
 use App\Form\UserFormType;
 use PhpParser\Node\Expr\Cast\Object_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\UserRepository;
+use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -18,11 +20,14 @@ class AdminController extends AbstractController
 {
     private $em;//entity manager
 
-    //Connect to the entries for teachers in the DB
+    //Connect to the entries for users and posts in the DB
     private $userRepository;
-    public function __construct(UserRepository $userRepository, EntityManagerInterface $em )
+    private $postRepository;
+
+    public function __construct(PostRepository $postRepository, UserRepository $userRepository, EntityManagerInterface $em )
     {
         $this->userRepository = $userRepository;
+        $this->postRepository = $postRepository;
         $this->em = $em;
 
     }
@@ -35,7 +40,7 @@ class AdminController extends AbstractController
       
     }
 
-    //Create
+    //User- create
     #[Route('/admin/users/create', name: 'create_user')]
     public function createUser(Request $request): Response
     {
@@ -59,7 +64,7 @@ class AdminController extends AbstractController
 
     }
 
-    //UPDATE (edit)
+    //User -edit
     #[Route('admin/users/{id}', name: 'edit_users')]
     public function edit($id, Request $request): Response
     {
@@ -83,5 +88,18 @@ class AdminController extends AbstractController
         ]);
     }
     
+
+    /** POSTS **/
+    //Posts index
+    #[Route('/admin/posts', name: 'admin_posts_index')]
+    public function adminPostsIndex(Request $request): Response
+    {
+      $posts = $this->postRepository->findAll();
+    
+      return $this->render('admin/posts_index.html.twig',[
+        'posts'  => $posts
+      ]);
+      
+    }
     
 }

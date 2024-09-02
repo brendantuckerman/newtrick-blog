@@ -1,0 +1,56 @@
+{% extends "./base.html.twig" %}
+{% block body %}
+<div class="w-full text-center pb-8">
+  <h1 class="text-7xl font-bold">All Posts</h1>
+</div>
+
+ <div class="posts-admin-table-wrapper flex flex-col" >
+  <table class="posts-admin-table w-full text-center">
+    <thead>
+      <tr class="h-20">
+        <th>Title</th>
+        <th>Author</th>
+        <th>Created On</th>
+        <th>Modified On</th>
+        <th>Tags</th>
+        <th>Published?</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="posts-admin-table-body">
+     {% if posts is not empty%}
+      {% for post in posts %}
+        <tr class="h-20">
+          <td>{{ post.title }}</td>
+          <td> {{ post.user.email }}</td>
+          <td> {{ post.createdAt|date() }} </td>
+          <td> {{ post.updatedAt|date() }}</td>
+          <td> {% for tag in post.tags %}
+                {{tag}} <br>
+               {% endfor %}
+          </td>
+          <td>{{ post.isPublished ? 'Yes' : 'No' }}</td>
+          <td>
+              <a 
+                href="posts/edit/{{ post.id }}"
+                class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
+                Edit post
+            </a>
+
+            <a 
+                href="posts/delete/{{ post.id }}"
+                onclick="return confirm('Are you sure you want to delete the post {{ post.title }}?');"
+                class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
+                Delete post
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+    </tbody>
+</table>
+
+
+ </div>
+
+{% endblock %}

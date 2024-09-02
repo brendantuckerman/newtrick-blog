@@ -33,21 +33,6 @@
             {{post.content|raw}}
         </div>
         {% endif %}
-      
 
-        {# {% if app.user and post.userId == app.user.id %}  #}
-         
-            <a 
-                href="/admin/posts/edit/{{ post.id }}"
-                class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
-                Edit post
-            </a>
-
-            <a 
-                href="admin/posts/delete/{{ post.id }}"
-                class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
-                Delete post
-            </a>
-        {# {% endif %}  #}
     </div>
 {% endblock %}
