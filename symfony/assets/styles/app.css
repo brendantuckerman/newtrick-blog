@@ -20,6 +20,14 @@
     /* Posts */
     .post-main-content{
 
+      p,
+      a,
+      span
+      { 
+        @apply text-xl leading-relaxed;
+      }
+      
+
       h1,
       h2,
       h3,

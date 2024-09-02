@@ -27,8 +27,8 @@
 
                         <div class="flex items-center flex-shrink-0 text-black mr-6">
                             <a
-                                    class="text-black no-underline hover:text-white hover:no-underline"
-                                    href="/">
+                                class="text-black no-underline hover:text-blue-600 hover:no-underline"
+                                href="/">
                                 <span class="text-xl pl-2 font-extrabold">
                                     NewTrick | Brendan Tuckerman
                                 </span>
@@ -159,18 +159,18 @@
             </div>
 
             {% block footer %}
-                <footer class="bg-blue-700 py-6 px-4 mt-40 w-full h-40 flex flex-col border-t-4 border-black grid grid-cols-2">
-                <div class="footer-col-first flex items-end justify-end">
-                    <p class="pb-3 m-auto text-sm text-gray-100 pt-6">
-                        Copyright {{ 'now' | date('Y') }} Brendan Tuckerman. All Rights Reserved
-                    </p>
-                </div>
-                <div class="footer-col-second flex h-full">
+                <footer class="py-6 px-4 mt-40 w-full h-40 flex flex-col border-t-4 border-black">
+                <div class="footer-links-wrapper flex h-full">
                     <ul class="flex text-gray-100  w-full justify-evenly items-start text-sm">
                         <li><a href="/" class="underline">GitHub</a></li>
                         <li><a href="/" class="underline">Mastodon</a></li>
                         <li><a href="/" class="underline">LinkedIn</a></li>
                     </ul>
+                </div>
+                <div class="footer-cr-wrapper flex items-end justify-end">
+                    <p class="pb-3 m-auto text-sm text-gray-100 pt-6">
+                        Copyright {{ 'now' | date('Y') }} Brendan Tuckerman | All Rights Reserved
+                    </p>
                 </div>
                     
                 </footer>

@@ -24,14 +24,12 @@
                     alt= {{ post.imageAltText }}
                     class="shadow-xl rounded-md"
                 />
-
             {% else %}
                  <img 
                 src="{{ asset('build/images/php.31bcfd02.webp') }}"
                 alt="An illustration of a stuffed PHP elephant placed on the keyboard of a laptop."
                 class="rounded"
                 >
-
             {% endif %}
 
                 <h2 class="text-gray-700 font-bold text-3xl py-2">
@@ -47,8 +45,8 @@
                 </p> #}
                 <div class="mt-8">
               
-                    <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded transition transition-all hover:bg-gray-800 hover:text-white">
-                        Keep Reading
+                    <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}" class="uppercase border border-gray-500 text-gray-600 text-lg py-4 px-12 rounded-full transition transition-all hover:border-blue-800 hover:text-blue-600 hover:underline">
+                        Keep Reading >
                     </a>
                 </div>
             </div>
