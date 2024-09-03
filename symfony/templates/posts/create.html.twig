@@ -11,9 +11,7 @@
     </div>
     {% endif %}
 
-
-
-   {{ form_start(form) }}
+  {{ form_start(form) }}
     {{ form_row(form.title) }}
     {{ form_row(form.imagePath) }}
     {{ form_row(form.imageAltText) }}
@@ -39,7 +37,6 @@
            
       </div>
 
-
         {{ form_row(form.user) }}
         {{ form_row(form.published) }}
 
@@ -49,7 +46,7 @@
     <div class="hidden">
       {{ form_rest(form) }}
     </div>
-      {{ form_end(form) }}
+  {{ form_end(form) }}
 </div>
 
 {% endblock %}

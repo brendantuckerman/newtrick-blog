@@ -86,6 +86,7 @@ class PostsController extends AbstractController
 
       $form = $this->createForm(postFormType::class, $post);
 
+
       $form->handleRequest($request);
       $imagePath = $form->get('imagePath')->getData();
 
