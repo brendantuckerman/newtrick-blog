@@ -164,16 +164,16 @@
                 <h4 class="text-right text-6xl">The End</h4>
               </div>
               <div class="grid grid-cols-3 gap-4">
-            
-                  <div class="footer-links-wrapper flex flex-col h-full">
+                <div>
+                  <div class="footer-links-wrapper flex flex-col py-4">
                       <h5 class="text-xl font-semibold">Menu</h5>
                       <ul class="flex flex-col text-sm">
-                          <li><a href="/" class="underline">GitHub</a></li>
-                          <li><a href="/" class="underline">Mastodon</a></li>
-                          <li><a href="/" class="underline">LinkedIn</a></li>
+                          <li><a href="/" class="underline">About</a></li>
+                          <li><a href="/" class="underline">Blog</a></li>
+                          <li><a href="/" class="underline">Contact</a></li>
                       </ul>
                   </div>
-                  <div class="footer-links-wrapper flex  flex-col h-full">
+                  <div class="footer-links-wrapper flex  flex-col py-4">
                       <h5 class="text-xl font-semibold">Contact</h5>
                       <ul class="flex flex-col text-sm">
                           <li><a href="/" class="underline">GitHub</a></li>
@@ -182,11 +182,25 @@
                       </ul>
                   </div>
              
-                <div class="footer-cr-wrapper flex items-end justify-end h-full">
-                    <p class="pb-3 m-auto text-sm pt-6">
+                <div class="footer-cr-wrapper flex items-end justify-start py-4">
+                    <p class="text-sm">
                         Copyright {{ 'now' | date('Y') }} Brendan Tuckerman | All Rights Reserved
                     </p>
                 </div>
+              </div>
+
+              <div></div>
+              <div class="back-to-top-wrapper w-full flex justify-end items-end px-4 py-4">
+                 <button onclick="backToTop()" id="backToTop" title="Back to top"
+                 class="hidden fixed bottom-4 right-4 z-99 cursor-pointer hover:fill-blue-600"
+                 >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="52" height="52">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm1 10h3l-4-4-4 4h3v4h2v-4z" />
+                    </svg>
+                </button>
+
+              </div>
                     
                 </footer>
             {% endblock %}

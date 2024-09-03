@@ -14,3 +14,6 @@ import './js/ckeditor.js'; //Added directly.
 
 //Tags handler
 import './js/tagsHandler.js';
+
+//Back to top button
+import './js/backToTop.js';

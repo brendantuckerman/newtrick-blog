@@ -5,6 +5,13 @@
     <h1 class="text-6xl text-center pb-12">
         Create a new post
     </h1>
+    {% if form_errors(form) %}
+    <div class="form-errors bg-red-800 p-8 text-white rounded">
+       {{ form_errors(form) }}
+    </div>
+    {% endif %}
+
+
 
    {{ form_start(form) }}
     {{ form_row(form.title) }}
@@ -29,7 +36,7 @@
                 </span>
             {% endfor %}
         </div>
-            {{ form_errors(form.tags) }}
+           
       </div>
 
 
@@ -39,7 +46,10 @@
         <button type="submit" class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
             Submit Post
         </button>
-    {{ form_end(form, {'render_rest': false}) }}
+    <div class="hidden">
+      {{ form_rest(form) }}
+    </div>
+      {{ form_end(form) }}
 </div>
 
 {% endblock %}
