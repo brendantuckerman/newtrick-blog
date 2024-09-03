@@ -159,16 +159,31 @@
             </div>
 
             {% block footer %}
-                <footer class="py-6 px-4 mt-40 w-full h-40 flex flex-col border-t-4 border-black">
-                <div class="footer-links-wrapper flex h-full">
-                    <ul class="flex text-gray-100  w-full justify-evenly items-start text-sm">
-                        <li><a href="/" class="underline">GitHub</a></li>
-                        <li><a href="/" class="underline">Mastodon</a></li>
-                        <li><a href="/" class="underline">LinkedIn</a></li>
-                    </ul>
-                </div>
-                <div class="footer-cr-wrapper flex items-end justify-end">
-                    <p class="pb-3 m-auto text-sm text-gray-100 pt-6">
+            <footer class="px-4 mt-40 w-screen h-40 flex flex-col border-t-4 border-black py-4">  
+              <div class="footer-title w-full flex items-start justify-end">
+                <h4 class="text-right text-6xl">The End</h4>
+              </div>
+              <div class="grid grid-cols-3 gap-4">
+            
+                  <div class="footer-links-wrapper flex flex-col h-full">
+                      <h5 class="text-xl font-semibold">Menu</h5>
+                      <ul class="flex flex-col text-sm">
+                          <li><a href="/" class="underline">GitHub</a></li>
+                          <li><a href="/" class="underline">Mastodon</a></li>
+                          <li><a href="/" class="underline">LinkedIn</a></li>
+                      </ul>
+                  </div>
+                  <div class="footer-links-wrapper flex  flex-col h-full">
+                      <h5 class="text-xl font-semibold">Contact</h5>
+                      <ul class="flex flex-col text-sm">
+                          <li><a href="/" class="underline">GitHub</a></li>
+                          <li><a href="/" class="underline">Mastodon</a></li>
+                          <li><a href="/" class="underline">LinkedIn</a></li>
+                      </ul>
+                  </div>
+             
+                <div class="footer-cr-wrapper flex items-end justify-end h-full">
+                    <p class="pb-3 m-auto text-sm pt-6">
                         Copyright {{ 'now' | date('Y') }} Brendan Tuckerman | All Rights Reserved
                     </p>
                 </div>
