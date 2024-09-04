@@ -28,46 +28,70 @@
     {# 'Header' #}
       <div class="text-center pt-8 pb-4 flex w-full justify-between items-end ">
                
-        <h2 class="text-gray-700 font-bold py-2">
-              User email
-        </h2>
-        <h2 class="text-gray-700 font-bold py-2">
-              Roles
-        </h2>
-        <h2 class="text-gray-700 font-bold py-2">
-              Created at
-        </h2>
-        <h2 class="text-gray-700 font-bold py-2">
-              Modified at
-        </h2>
-        <h2 class="text-gray-700 font-bold py-2">
-              User Details
-        </h2>
+    <table class"w-full">
+        <thead class="text-bold p-4 h-20">
+            <th>
+                Email
+            </th>
+            <th>
+                Roles
+            </th>
+            <th>
+                Created At
+            </th>
+            <th>
+               Modified At
+            </th>
+             <th>
+               Actions
+            </th>
+        
+        </thead>
+        <tbody>
+            <!-- Review Item -->
+        {% for user in users %}
+            <tr>
+               
+                <td class="text-gray-700 font-bold py-2">
+                      {{user.email}}
+                </td>
+                <td>
+                    <ul>
+                    {% for role in user.roles %}
+                    <li>{{role}}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <p>{{ user.CreatedAtValue|date('Y-m-d H:i:s')}}</p>
+                </td>
+                <td>
+                    <p>{{ user.UpdatedAtValue|date('Y-m-d H:i:s')}}</p>
+                </td>
+                <td>
+                     <a 
+                href="/profile/edit/{{ user.id }}"
+                class="bg-green-500 font-bold py-2 px-4 rounded transition-all hover:bg-green-300">
+                Edit User
+            </a>
+
+            <a 
+                href="admin/users/delete/{{ user.id }}"
+                onclick="return confirm('Are you sure you want to delete the User {{ user.email }}?');"
+                class="bg-red-500 font-bold py-2 px-4 ml-6 rounded transition-all hover:bg-red-300">
+                Delete User
+            </a>
+                </td>
+                              
+                
+               
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
                             
       </div>
 
-        <!-- Review Item -->
-        {% for user in users %}
-            <div class="text-center pt-8 pb-4 flex w-full justify-between items-end ">
-               
-                <h2 class="text-gray-700 font-bold py-2">
-                      {{user.email}}
-                </h2>
-                <ul>
-                  {% for role in user.roles %}
-                  <li>{{role}}</li>
-                  {% endfor %}
-                </ul>
-                <p>{{ user.CreatedAtValue|date('Y-m-d H:i:s')}}</p>
-                <p>{{ user.UpdatedAtValue|date('Y-m-d H:i:s')}}</p>
-
-                              
-                <div class="mt-8">
-                    <a href="/users/{{ user.id }}" class="uppercase border border-gray-500 text-gray-600 p-2 rounded transition transition-all hover:bg-gray-800 hover:text-white">
-                        View user profile
-                    </a>
-                </div>
-            </div>
-        {% endfor %}
+        
     </div>
 {% endblock %}

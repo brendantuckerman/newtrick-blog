@@ -1,11 +1,11 @@
 {% extends "./base.html.twig" %}
 {% block body %}
 
-    <h1>Admin Dashboard</h1>
+    <h1 class="text-7xl text-center">Admin Dashboard</h1>
 
     {% if "ROLE_ADMIN" in app.user.roles %}
       
-    <div class="card-container overflow-hidden shadow-xl bg-gray-200 relative hover:shadow-2xl hover:scale-105 duration-700 rounded">
+    <div class="card-container overflow-hidden shadow-xl bg-gray-200 relative hover:shadow-2xl hover:scale-105 duration-700 rounded my-8">
       <div class="card-trip-infos flex p-5 justify-center relative items-center">
         <div>
           <h2 class="text-5xl font-semibold mb-4">Manage Posts</h2>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-     <div class="card-container overflow-hidden shadow-xl bg-gray-200 relative hover:shadow-2xl hover:scale-105 duration-700 rounded">
+     <div class="card-container overflow-hidden shadow-xl bg-gray-200 relative hover:shadow-2xl hover:scale-105 duration-700 rounded my-8">
       <div class="card-trip-infos flex p-5 justify-center relative items-center">
         <div>
           <h2 class="text-5xl font-semibold mb-4">Manage Users</h2>

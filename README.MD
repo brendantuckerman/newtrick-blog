@@ -10,15 +10,15 @@ A Symfony blog site project utilising:
 ### MVP/ TODO ###
 
 - Front page with a brief intro and a list of blogs as card with tags
-    - Admin has a + create new blog post link
-    - Front page has a Admin dashboard link for logged in users
-- login
-- Login leads to front if ROLE_USER, to Admin dashboard if ROLE_ADMIN
+    - Admin has a + create new blog post link [x]
+    - Front page has a Admin dashboard link for logged in users [x]
+- login [x]
+- Login leads to front if ROLE_USER, to Admin dashboard if ROLE_ADMIN [x]
 - ROLE_USER can leave comments
-- Admin dashoard:
-    - User management CRUD
-    - Blog post management CRUD
-        - Create blog post includes CKEDITOR5
+- Admin dashoard: [x]
+    - User management CRUD [x]
+    - Blog post management CRUD [x]
+        - Create blog post includes CKEDITOR5 [x]
 
 TODO
 - tags are not being posted (text->json?) [x]
@@ -29,29 +29,36 @@ TODO
 - change usrl from post/ to post/year/title [x]
 - Remove registration link for MVP 
 - Move any CRUD operation gateways to /admin [x]
-- Create table listing for users show all and posts show all
+- Create table listing for users show all and posts show all [x]
 - Add link to admin to twig for index [x]
 - Adjust order of form elements [x]
 - Adjust styling of forms [x]
 - Mobile first design [x]
 - 400 and 500 default pages for production only
 - Testing: 
-    - Logged in
+    - Create a test page with CKeditor all styles
+    - Logged in (create admin and non admin)
     - Logged out
     - Url direct into address bar
     - Through links
-- Update user admin page to include edit and delete
+    - User journey 
+- Update user admin page to include edit and delete [x]
 - Search 
 - About  
 - Contact
+- The user edit function should lock down fields for users. Currently admin can access. If you want to make the fields available for users, lock down roles, email. (Basially it should be a seperat change my password)
+
 
 TODO:NTH
 
 - Comments
     - Text
     - created at
-- Are you sure to delete of posts
+- Are you sure to delete of posts [x]
 - User profile
+- User includes profile image
+- Images in the ckeditor?
+
 
 ### Entities ###
 

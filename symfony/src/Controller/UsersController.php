@@ -4,15 +4,13 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserFormType;
-use PhpParser\Node\Expr\Cast\Object_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 
 class UsersController extends AbstractController
 {
@@ -85,23 +83,5 @@ class UsersController extends AbstractController
       return $this->redirectToRoute('users');
 
     }
-
-
-    /**
-     * index
-     *
-     * @param  mixed $className
-     * @return JsonResponse
-     * 
-     * This was the original function that returns a json repsonse
-      */ 
-    //#[Route('/classes/{className}', name: 'app_classes', defaults: ['className' => null ], methods:['GET', 'HEAD'])]
-    // public function index($className): JsonResponse
-    // {
-    //     return $this->json([
-    //         'message' => 'Welcome to ' . $className,
-    //         'path' => 'src/Controller/ClassesController.php',
-    //     ]);
-    // }
     
 }
