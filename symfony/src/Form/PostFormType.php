@@ -39,7 +39,6 @@ class PostFormType extends AbstractType
             ])
             ->add('imageAltText', TextType::class,  [
                 'required' => true,
-                'mapped' => false,
                 'label' => 'Alt text',
                 'label_attr' => ['class' => 'post-form-label'],
                 'row_attr' => ['class' => 'post-form-row-wrapper']
