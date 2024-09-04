@@ -21,7 +21,7 @@ A Symfony blog site project utilising:
         - Create blog post includes CKEDITOR5
 
 TODO
-- tags are not being posted (text->json?)
+- tags are not being posted (text->json?) [x]
 - js should only fire on the pages it needs to
 - Complete post crud operations  [x]
 - Update links in twig for "show" posts  to <a href="{{ path('post', {'year': post.createdAt|date('Y'), 'slug': post.slug}) }}">{{ post.title }}</a> [x]
@@ -31,15 +31,19 @@ TODO
 - Move any CRUD operation gateways to /admin [x]
 - Create table listing for users show all and posts show all
 - Add link to admin to twig for index [x]
-- Adjust order of form elements
-- Adjust styling of forms 
-- Mobile first design
+- Adjust order of form elements [x]
+- Adjust styling of forms [x]
+- Mobile first design [x]
 - 400 and 500 default pages for production only
 - Testing: 
     - Logged in
     - Logged out
     - Url direct into address bar
     - Through links
+- Update user admin page to include edit and delete
+- Search 
+- About  
+- Contact
 
 TODO:NTH
 

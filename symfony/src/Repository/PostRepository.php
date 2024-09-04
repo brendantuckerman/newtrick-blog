@@ -40,4 +40,8 @@ class PostRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    function findAll(): array {
+        return $this->findBy(array(), array('createdAt' => 'DESC'));
+    }
 }
