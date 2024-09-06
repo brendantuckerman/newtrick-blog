@@ -20,7 +20,7 @@ A Symfony blog site project utilising:
     - Blog post management CRUD [x]
         - Create blog post includes CKEDITOR5 [x]
 
-TODO
+TODO: MVP Only (move everything else to NTH)
 - tags are not being posted (text->json?) [x]
 - js should only fire on the pages it needs to
 - Complete post crud operations  [x]
@@ -34,7 +34,7 @@ TODO
 - Adjust order of form elements [x]
 - Adjust styling of forms [x]
 - Mobile first design [x]
-- 400 and 500 default pages for production only
+
 - Testing: 
     - Create a test page with CKeditor all styles
     - Logged in (create admin and non admin)
@@ -43,14 +43,15 @@ TODO
     - Through links
     - User journey 
 - Update user admin page to include edit and delete [x]
-- Search 
 - About  
 - Contact
 - The user edit function should lock down fields for users. Currently admin can access. If you want to make the fields available for users, lock down roles, email. (Basially it should be a seperat change my password)
 
 
-TODO:NTH
+TODO:NTH(post deploy features)
 
+- Search 
+- Ckeditor stylsheet
 - Comments
     - Text
     - created at
@@ -58,7 +59,7 @@ TODO:NTH
 - User profile
 - User includes profile image
 - Images in the ckeditor?
-
+-- 400 and 500 default pages for production only
 
 ### Entities ###
 
