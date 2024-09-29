@@ -9,16 +9,6 @@ A Symfony blog site project utilising:
 
 ### MVP/ TODO ###
 
-- Front page with a brief intro and a list of blogs as card with tags
-    - Admin has a + create new blog post link [x]
-    - Front page has a Admin dashboard link for logged in users [x]
-- login [x]
-- Login leads to front if ROLE_USER, to Admin dashboard if ROLE_ADMIN [x]
-- ROLE_USER can leave comments
-- Admin dashoard: [x]
-    - User management CRUD [x]
-    - Blog post management CRUD [x]
-        - Create blog post includes CKEDITOR5 [x]
 
 TODO: MVP Only (move everything else to NTH)
 - tags are not being posted (text->json?) [x]
@@ -34,6 +24,8 @@ TODO: MVP Only (move everything else to NTH)
 - Adjust order of form elements [x]
 - Adjust styling of forms [x]
 - Mobile first design [x]
+- contact and about pages []
+- surgically remove original stuuf (teachers etc) []
 
 - Testing: 
     - Create a test page with CKeditor all styles
@@ -46,6 +38,7 @@ TODO: MVP Only (move everything else to NTH)
 - About  
 - Contact
 - The user edit function should lock down fields for users. Currently admin can access. If you want to make the fields available for users, lock down roles, email. (Basially it should be a seperat change my password)
+- Check access to endpoints as I've removed the las tline from security
 
 
 TODO:NTH(post deploy features)
@@ -59,6 +52,7 @@ TODO:NTH(post deploy features)
 - User profile
 - User includes profile image
 - Images in the ckeditor?
+- Contact form (+ mailserverset up)
 -- 400 and 500 default pages for production only
 
 ### Entities ###
@@ -201,25 +195,28 @@ You can use this module to create forms using 'make:from MODELFormType MODEL'. e
 If you are not re-creating this project from the gorund up, here are the more simple steps needed to get going for development. Make sure Docker is running.
 
 TODO: Put these in a startup script
-&& add in composer update
+
+(Local alias sf fo docker...symfony)
 
 1. Start from root
 2. docker compose up -d --build 
 3. docker compose up
-4. docker compose exec php symfony composer install
-5. cd symfony/
-6. docker compose exec php symfony console make:migration  (?)
-7. docker compose exec php symfony console doctrine:migrations:migrate
-8. docker compose exec php symfony console doctrine:fixtures:load
-9. npm i
-10. npm run watch
-11. Project should be running at localhost:8080
+4.  docker compose exec php symfony composer update
+5. docker compose exec php symfony composer install
+6. cd symfony/
+7. docker compose exec php symfony console make:migration  (?)
+8. docker compose exec php symfony console doctrine:migrations:migrate
+9. docker compose exec php symfony console doctrine:fixtures:load
+10. npm i
+11. npm run watch
+12. Project should be running at localhost:8080
 
 ## Deployment ##
 
 1. Be sure that any fixtures have been removed, especially the users 
 2. Set up digital oceon droplet
-3. Follow these instructions for poiting to name server: https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/
+3. Mailing will require TLS, DKIM, SPF, DMAR
+4. Follow these instructions for poiting to name server: https://docs.digitalocean.com/products/networking/dns/getting-started/dns-registrars/
 
 ## Topic Lists ##
 

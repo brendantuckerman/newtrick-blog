@@ -1,7 +1,20 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
+<div class="about-container border-t-4 border-black py-4">
+  <h1 class="text-7xl text-bold text-end">About</h1>
+  <div class="about-grid flex flex-col justify-center md:grid md:grid-cols-2">
+    <div class="about-image-container pt-4 my-0 mx-auto">
+      <img src="{{ asset('build/images/about_photo.dbb057b7.webp') }}" alt="An image of the author sleeping on a couch, beanie down over his eyes, next to a sleeping dog"
+      class="rounded-full w-72 h-72 sm:w-96 sm:h-96"
+      >
+    </div>
+    <div class="about-text-container pt-4 text-xl leading-loose">
+      <p>Hi! I'm Brendan.</p>
+      <p>I'm a web developer working predominately on Drupal projects.</p>
 
-<h1 class="text-7xl text-bold">About</h1>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

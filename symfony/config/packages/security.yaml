@@ -42,9 +42,12 @@ security:
         - { path: ^/$, roles: PUBLIC_ACCESS }
         - { path: ^/login$, roles: PUBLIC_ACCESS }
         - { path: ^/register$, roles: PUBLIC_ACCESS }
+        - { path: ^/contact$, roles: PUBLIC_ACCESS }
+        - { path: ^/about$, roles: PUBLIC_ACCESS }
+        - { path: ^/posts$, roles: PUBLIC_ACCESS }
         
         # Restrict all other routes to roles higher than ROLE_USER
-        - { path: ^/, roles: [ROLE_USER, ROLE_ADMIN] }
+       # - { path: ^/, roles: [ROLE_USER, ROLE_ADMIN] }
     role_hierarchy:
         
         ROLE_ADMIN:   ROLE_USER

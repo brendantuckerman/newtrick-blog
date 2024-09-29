@@ -51,7 +51,7 @@ class IndexController extends AbstractController
     return $this->render('about.html.twig');
   }
 
-  #[Route('contact/', methods: ['GET'], name: 'about')]
+  #[Route('contact/', methods: ['GET'], name: 'contact')]
   public function contact(): Response 
   {
     return $this->render('contact.html.twig');
