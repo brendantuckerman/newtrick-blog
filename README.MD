@@ -24,11 +24,11 @@ TODO: MVP Only (move everything else to NTH)
 - Adjust order of form elements [x]
 - Adjust styling of forms [x]
 - Mobile first design [x]
-- contact and about pages []
+- contact and about pages [x]
 - surgically remove original stuuf (teachers etc) []
 
 - Testing: 
-    - Create a test page with CKeditor all styles
+    - Create a test page with CKeditor all styles []
     - Logged in (create admin and non admin)
     - Logged out
     - Url direct into address bar

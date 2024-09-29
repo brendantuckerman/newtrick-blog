@@ -1,7 +1,23 @@
 {% extends "./base.html.twig" %}
 
 {% block body %}
-
-<h1 class="text-7xl text-bold">Contact</h1>
-
+<div class="about-container border-t-4 border-black py-4">
+  <h1 class="text-7xl text-bold text-end">Contact</h1>
+  <div class="about-grid flex flex-col justify-center md:grid md:grid-cols-2">
+    <div class="contact-image-container pt-4 my-0 mx-auto">
+      <img src="{{ asset('build/images/contact_photo.b47ca323.webp') }}" alt="A handset of an old style telephone with a cord against a plain background."
+      class="rounded-full w-72 h-72 sm:w-96 sm:h-96"
+      >
+    </div>
+    <div class="contact-text-container pt-4 text-xl flex flex-col items-center justify-center">
+     <div class="div contact-text flex flex-col">
+         <ul class="flex flex-col gap-8">
+            <li><a href="https://github.com/brendantuckerman" rel="nofollow" target="blank"  class="underline">GitHub</a></li>
+            <li><a href="https://fosstodon.org/@mrmaverick" rel="nofollow" target="blank" class="underline">Mastodon</a></li>
+            <li><a href="https://www.linkedin.com/in/brendan-tuckerman-3b24a030b/" rel="nofollow" target="blank" class="underline">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
