@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', (event) => {
     document.querySelectorAll('.ckeditor').forEach((element) => {
         ClassicEditor
