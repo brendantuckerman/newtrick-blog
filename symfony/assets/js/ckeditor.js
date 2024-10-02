@@ -1,9 +1,7 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelectorAll('.ckeditor').forEach((element) => {
-        ClassicEditor
-            .create(element)
-            .catch(error => {
-                console.error('Ckeditor error', error);
-            });
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  ClassicEditor
+      .create(document.querySelector('#post_form_content'))
+      .catch(error => {
+          console.error(error);
+      });
 });

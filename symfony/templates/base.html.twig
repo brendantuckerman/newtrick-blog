@@ -10,11 +10,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
-
         {% block javascripts %}
             {{ encore_entry_link_tags('app') }}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        
     </head>
     <body class="min-h-screen antialiased leading-none flex flex-col">
             {% block header %}
@@ -204,5 +204,8 @@
                     
                 </footer>
             {% endblock %}
+     
+      
+     
     </body>
 </html>

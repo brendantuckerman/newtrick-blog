@@ -12,4 +12,5 @@ fos_ck_editor:
     configs:
         my_config:
             toolbar:
-                - { name: 'styles', items: ['Bold', 'Italic', 'Link', 'Unlink', 'NumberedList', 'BulletedList', 'BlockQuote'] }
+                - { name: 'styles', items: ['Bold', 'Italic', 'Link', 'Unlink', 'NumberedList', 'BulletedList', 'BlockQuote', 'CodeBlock'] }
+ 

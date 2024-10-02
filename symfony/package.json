@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^43.0.0",
+        "ckeditor5-code-block": "^1.0.11",
         "file-loader": "^6.2.0"
     }
 }
